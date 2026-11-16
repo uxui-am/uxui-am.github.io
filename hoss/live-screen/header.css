@@ -1,0 +1,26 @@
+.site-header{position:absolute;inset:0 0 auto;height:4.6875vw;min-height:48px;padding:0 10.625%;display:flex;align-items:center;justify-content:space-between;background:#3c7ac940;backdrop-filter:blur(16px);border-bottom:1px solid #5b92d5;z-index:5}.brand{display:flex;align-items:center;gap:.833vw;color:white;text-decoration:none}.hoss-logo{width:4.948vw;height:1.771vw}.brand-name{font-size:.625vw;line-height:.95}.kordie{width:3.698vw;height:2.031vw;position:relative;border-radius:4px;background:#0c3c7633;padding:.3125vw}.kordie small{display:block;font-size:.469vw;white-space:nowrap}.kordie-letters{display:flex;gap:.13vw;align-items:flex-end;margin-top:.1vw}.kordie-letters img{height:.55vw;width:auto}.site-header nav{display:flex;align-items:center;gap:.833vw}.site-header nav a{display:flex;align-items:center;color:white;text-decoration:none;white-space:nowrap}.menu-link{gap:.417vw;font-size:1.042vw;margin-right:1.25vw}.menu-link img{width:1.25vw;height:1.25vw}.outline-link{font-size:.833vw;border:1.5px solid white;padding:.625vw 1.042vw;border-radius:99px;gap:.3125vw}.outline-link img{width:.729vw;height:.729vw}
+.fan{transform:translateX(3vw)}
+.hero{height:100svh;min-height:0}
+.hero-layout{position:absolute;width:100%;left:0;transform-origin:top center}
+.hero-layout .content{padding-top:3vw}
+.hero-layout .headliner{margin-top:3vw;padding-bottom:2vw}
+@media(max-width:700px){.hero-layout .content{padding-top:16px}.hero-layout .fan{height:76vw}.hero-layout .headliner{padding-bottom:12px}}
+.card{transition-timing-function:cubic-bezier(.25,.65,.3,1);will-change:transform}
+.card .face{transition:transform .95s cubic-bezier(.25,.65,.3,1);will-change:transform}
+.card.dragging{transition:none!important}
+.card{aspect-ratio:278.878/368.141}
+.card .social{height:10.173%}
+.card .photo img[src$="/b9bc3.png"]{object-fit:cover;object-position:center}
+.fan.timeline-motion .card,.fan.timeline-motion .card .face{transition:none!important}
+.fan.timeline-motion .card{transition:opacity .18s ease-in-out!important}
+.scroll-controlled .cycle-track{height:700svh;position:relative}
+.scroll-controlled .hero{position:sticky;top:0;height:100svh;min-height:0}
+.scroll-controlled .card{pointer-events:none;touch-action:pan-y}
+.scroll-controlled .fan{touch-action:pan-y}
+.scroll-controlled .fan.timeline-motion .card{transition:none!important}
+.scroll-controlled .backdrop{display:none!important}
+.scroll-controlled #autoplay{display:none}
+@media(max-width:700px){.site-header{height:60px;padding:0 7%;min-height:0}.hoss-logo{width:66px;height:auto}.brand-name{font-size:8px}.brand{gap:8px}.kordie{width:48px;height:27px;padding:4px}.kordie small{font-size:6px}.kordie-letters{gap:1px;margin-top:2px}.kordie-letters img{height:8px}.menu-link{font-size:12px;gap:5px}.menu-link img{width:15px;height:15px}.outline-link{font-size:10px;padding:8px 10px}.outline-link img{width:10px;height:10px}.site-header nav .outline-link{display:none}.content{padding-top:100px}.fan{transform:none;height:88vw}}
+@media(prefers-reduced-motion:reduce){.card,.card .face{transition:none!important;will-change:auto}}
+
+
