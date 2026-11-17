@@ -211,6 +211,153 @@ main{padding:40px;display:flex;flex-direction:column;gap:80px}.case-section{padd
 @media(max-width:820px){#social-media,#event-materials{min-height:650px}}
 @media(max-width:820px){.hero::before{background-image:url('assets/responsive/hero-event.webp')}}
 .laptop-slot .laptop-photo picture>img{inset:0;width:100%;height:100%;object-fit:fill}
+/* Desktop content grid: centered 1360px visuals and 960px copy. */
+@media(min-width:821px){
+.case-chapters{align-items:center}
+.case-chapters>.case-section{width:100%;max-width:1360px}
+.case-chapters .case-copy-panel,.case-chapters .design-system-block .case-copy-panel,.problem-grid{width:min(960px,100%);max-width:960px;padding-left:0;padding-right:0;align-self:center}
+.website-layout .updated-wall{width:100vw;max-width:none;border-radius:0}
+.website-layout .updated-wall img{border-radius:0}
+.case-footer{max-width:1440px;margin-left:auto;margin-right:auto}
+}
+
+/* Editorial layout based on the supplied November 17 reference. */
+.case-chapters{max-width:1440px;margin:auto;padding:80px 40px;gap:120px;overflow:visible}
+.case-chapters>.case-section{display:grid;grid-template-columns:minmax(180px, .32fr) minmax(0,1fr);column-gap:48px;row-gap:56px;align-items:start;max-width:none}
+.case-chapters>.case-section>*{grid-column:2;min-width:0}
+.case-chapters>.case-section>.section-heading{grid-column:1;grid-row:1;display:flex;flex-direction:column-reverse;align-items:flex-start;gap:6px;border:0;padding:0}
+.case-chapters .section-heading h2{font-size:36px;line-height:1.05;letter-spacing:-.04em}
+.case-chapters .section-heading span{font-size:32px}
+.case-chapters .case-copy-panel,.case-chapters .design-system-block .case-copy-panel{width:100%;max-width:none;padding:0;min-height:0;align-self:start}
+.case-chapters .overview-lead{height:auto;gap:48px}
+.case-chapters .case-copy-panel .editorial-title{font:400 clamp(32px,3.05vw,56px)/1.08 Onest,sans-serif;letter-spacing:-.055em;color:var(--ink)}
+.editorial-title em{font-family:Fraunces,serif;font-weight:400;letter-spacing:-.055em}
+.case-chapters .case-copy-panel .editorial-description{font-size:18px;line-height:1.55;max-width:700px}
+.case-chapters .overview-collage{width:100%;aspect-ratio:1050/664;grid-template-columns:1.27fr 1fr;gap:24px}
+.case-chapters .collage-right{gap:24px}
+.case-chapters .collage-materials{display:block;position:relative}
+.collage-materials .programme-slot{height:100%}
+.collage-materials .badge-slot{display:none}
+.problem-grid{width:100%;max-width:none;min-height:0;align-self:start;gap:24px}
+.problem-grid article{padding-top:24px}
+.problem-grid h3{font-size:18px;line-height:1.3}
+.problem-grid p{font-size:16px;line-height:1.5;margin:0}
+.problem-grid .problem-label{font-size:11px}
+.case-chapters .structure-copy{gap:20px}
+.case-chapters .structure-copy h3{font-size:14px}
+.website-layout .updated-wall{width:100%;max-width:100%;aspect-ratio:1050/570;border-radius:8px;align-self:start}
+.website-layout .updated-wall img{border-radius:8px}
+.case-chapters .copy-after-wall{max-width:700px}
+.design-system-block{padding-top:0;gap:48px}
+.design-system-block .design-system-figure{width:100%;max-width:100%}
+@media(max-width:820px){
+.case-chapters{padding:48px 20px;gap:72px}
+.case-chapters>.case-section{grid-template-columns:1fr;gap:32px}
+.case-chapters>.case-section>*,.case-chapters>.case-section>.section-heading{grid-column:1;grid-row:auto}
+.case-chapters .section-heading h2{font-size:26px}.case-chapters .section-heading span{font-size:24px}
+.case-chapters .overview-lead{gap:24px}.case-chapters .case-copy-panel .editorial-title{font-size:32px}
+.case-chapters .case-copy-panel .editorial-description{font-size:16px}
+.case-chapters .overview-collage{aspect-ratio:auto;grid-template-columns:1fr;gap:16px}
+.case-chapters .collage-right{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:16px}
+.case-chapters .collage-right .photo-slot{aspect-ratio:1.4}
+.case-chapters .collage-materials .programme-slot{height:100%;aspect-ratio:auto}
+.problem-grid{grid-template-columns:1fr;gap:24px}.website-layout .updated-wall{width:100%}
+}
+
+/* Center editorial content independently from the left chapter labels. */
+@media(min-width:821px){
+.case-chapters{width:100%;max-width:none}
+.case-chapters>.case-section{grid-template-columns:minmax(140px,1fr) minmax(0,1360px) minmax(140px,1fr);column-gap:24px}
+.case-chapters>.case-section>.section-heading{justify-self:start}
+}
+/* Overview text arrangement from Figma 645:1796 (1360 x 201). */
+@media(min-width:821px){
+.case-chapters .overview-lead{display:grid;grid-template-columns:minmax(0,896.58fr) minmax(0,379.26fr);gap:40px;align-items:center;justify-content:start;padding:40px 0;width:100%;max-width:1315.84px;justify-self:start}
+.case-chapters .overview-lead .editorial-title{font-size:56px;line-height:60.5px;letter-spacing:-.055em}
+.case-chapters .overview-lead .editorial-description{font-size:18px;line-height:28px;max-width:none}
+}
+@media(min-width:821px) and (max-width:1200px){.case-chapters .overview-lead .editorial-title{font-size:40px;line-height:1.1}.case-chapters .overview-lead{gap:24px}.case-chapters .overview-lead .editorial-description{font-size:16px;line-height:24px}}
+/* Figma 519:1103: full content-width section heading, number on the right. */
+.case-chapters>.case-section>.section-heading{grid-column:2;grid-row:1;display:flex;flex-direction:row;justify-content:space-between;align-items:baseline;justify-self:stretch;width:100%;gap:24px;padding:0 0 24px;border-bottom:1px solid var(--case-line)}
+.case-chapters .section-heading h2{font:500 56px/56px Gabarito,sans-serif;letter-spacing:-.05em;text-transform:uppercase;margin:0}
+.case-chapters .section-heading span{font:italic 400 32px/1 Fraunces,serif;flex:none}
+@media(max-width:820px){.case-chapters>.case-section>.section-heading{grid-column:1;padding-bottom:20px}.case-chapters .section-heading h2{font-size:32px;line-height:36px}.case-chapters .section-heading span{font-size:24px}}
+/* Full-bleed website composition, independent of the centered content grid. */
+.website-layout .updated-wall{width:100vw;max-width:none;justify-self:center;align-self:start;border-radius:0}
+.website-layout .updated-wall img{border-radius:0}
+body{overflow-x:clip}
+/* Structure follows the two-column Overview text layout. */
+@media(min-width:821px){
+.case-chapters .structure-copy{display:grid;grid-template-columns:minmax(0,896.58fr) minmax(0,379.26fr);column-gap:40px;row-gap:20px;align-items:center;padding:40px 0;width:100%;max-width:1315.84px;justify-self:start}
+.case-chapters .structure-copy h3{grid-column:1;grid-row:1}
+.case-chapters .structure-copy .editorial-title{grid-column:1;grid-row:2;font-size:56px;line-height:60.5px;letter-spacing:-.055em}
+.case-chapters .structure-copy .editorial-description{grid-column:2;grid-row:2;font-size:18px;line-height:28px;max-width:none}
+}
+@media(min-width:821px) and (max-width:1200px){.case-chapters .structure-copy{column-gap:24px}.case-chapters .structure-copy .editorial-title{font-size:40px;line-height:1.1}.case-chapters .structure-copy .editorial-description{font-size:16px;line-height:24px}}
+@media(max-width:820px){.structure-break{display:none}}
+
+/* Photo layout and spacing from the current Figma case, Nov 17. Text column widths retained. */
+.case-chapters{padding-top:40px;gap:80px}
+.case-chapters>#overview,.case-chapters>#website{row-gap:40px}
+.case-chapters #overview .overview-collage{aspect-ratio:1360/778;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.case-chapters #overview .collage-right{gap:24px}
+.case-chapters #overview .collage-materials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;position:relative}
+.case-chapters #overview .collage-materials .badge-slot{display:block}
+.case-chapters #overview .collage-materials .programme-slot{height:auto}
+.case-chapters #overview .problem-grid{min-height:229px;margin-top:0}
+.website-laptop-mockup,.website-mobile-showcase{margin:0;width:100%;overflow:hidden;border-radius:10px}
+.website-laptop-mockup img,.website-mobile-showcase img{display:block;width:100%;height:auto}
+.case-chapters #website .design-system-block{gap:40px;width:100%;padding-top:40px}
+.case-chapters #website .design-system-figure{width:100%;max-width:100%;aspect-ratio:1005.713/797.331}
+.case-chapters #website .design-system-end{padding:40px 0;min-height:0}
+@media(max-width:820px){
+.case-chapters{padding-top:40px;gap:56px}
+.case-chapters>#overview,.case-chapters>#website{row-gap:32px}
+.case-chapters #overview .overview-collage{grid-template-columns:1fr;aspect-ratio:auto;gap:16px}
+.case-chapters #overview .collage-right{grid-template-columns:1fr;gap:16px}
+.case-chapters #overview .collage-materials{gap:16px}
+.case-chapters #overview .collage-materials .photo-slot{aspect-ratio:322/377}
+.case-chapters #overview .problem-grid{min-height:0}
+.case-chapters #website .design-system-block{gap:32px;padding-top:0}
+.case-chapters #website .design-system-end{padding:0}
+}
+
+/* Match the centered paragraph between the laptop and full-width page wall. */
+.case-chapters #website .copy-after-wall{width:920px;max-width:100%;justify-self:center;padding:120px 0;box-sizing:border-box}
+.case-chapters #website .copy-after-wall p{margin:0}
+@media(max-width:820px){.case-chapters #website .copy-after-wall{width:68%;padding:64px 0}}
+@media(max-width:600px){.case-chapters #website .copy-after-wall{width:84%;padding:40px 0}}
+.case-chapters #website .updated-wall,.case-chapters #website .updated-wall img{aspect-ratio:auto;height:auto}
+.case-chapters{padding-top:80px}
+.case-chapters #website .design-system-end{width:920px;max-width:100%;align-self:center;justify-self:center;margin:0 auto;padding:120px 0;box-sizing:border-box}
+.case-chapters #website .design-system-end p{margin:0}
+@media(max-width:820px){.case-chapters #website .design-system-end{width:68%;padding:64px 0}}
+@media(max-width:600px){.case-chapters #website .design-system-end{width:84%;padding:40px 0}}
+/* Keep the paragraph's actual spacing at 120px, without flex/grid gaps. */
+.case-chapters #website .design-system-figure{aspect-ratio:auto}
+.case-chapters #website .design-system-figure img{height:auto;object-fit:contain}
+.case-chapters #website .design-system-end{padding:120px 0;margin:-40px auto 0}
+.case-chapters #website .website-mobile-showcase{margin-top:-40px}
+@media(max-width:820px){.case-chapters #website .design-system-end{margin-top:-32px;padding:120px 0}.case-chapters #website .website-mobile-showcase{margin-top:-32px}}
+/* Subdue inactive chapter links, including their arrows. */
+.hero #section-navigation a,.fixed-header .compact a{color:#74777e;transition:color .18s ease}
+.hero #section-navigation a .separator,.fixed-header .compact a .separator{color:inherit}
+.hero #section-navigation a[aria-current="location"],.fixed-header .compact a[aria-current="location"],.hero #section-navigation a:hover,.fixed-header .compact a:hover,.hero #section-navigation a:focus-visible,.fixed-header .compact a:focus-visible{color:#fff}
+
+.case-chapters #website .design-system-copy{width:100%;max-width:none}
+/* Remove the oversized gap before the design-system metrics. */
+.case-chapters #website .design-system-figure{margin-top:-24px}
+
+.case-chapters #website .design-system-copy .structure-break{display:none}
+
+.case-chapters #website .design-system-figure{width:100%;max-width:100%;aspect-ratio:auto;margin:0}.case-chapters #website .design-system-figure img{display:block;width:100%;height:auto;object-fit:contain}
+
+.case-chapters #website .design-system-block{max-width:1360px;justify-self:center}.case-chapters #website .design-system-figure{width:100%;max-width:1360px;align-self:center}
+/* Explicit spacing around the design-system image; no accumulated gaps. */
+.case-chapters #website .design-system-block{gap:0;padding-top:64px}
+.case-chapters #website .design-system-copy{margin:0 0 96px;padding:0}
+.case-chapters #website .design-system-figure{margin:0}
+.case-chapters #website .design-system-end{margin:0 auto;padding:120px 0;min-height:0}
 </style>
 </head>
 <body>
@@ -224,28 +371,30 @@ main{padding:40px;display:flex;flex-direction:column;gap:80px}.case-section{padd
 <main class="case-chapters">
 <section class="case-section overview-layout" id="overview">
 <div class="section-heading"><h2>Overview</h2><span>/01</span></div>
-<div class="case-copy-panel overview-lead" data-draft="true"><p>Hospitality Social Media Summit (HoSS) is a conference run by Kordie. It needed one website for everything around the event: programme, speakers, registration, sponsorship and&nbsp;articles, plus visuals for the event itself.</p></div>
+<div class="case-copy-panel overview-lead"><p class="editorial-title">Hospitality Social Media Summit (HoSS) is a <em>conference</em> run by Kordie.</p><p class="editorial-description">It needed one website for everything around the event: programme, speakers, registration, sponsorship and articles, plus visuals for the event itself.</p></div>
 <div class="overview-collage">
- <div class="photo-slot laptop-slot"><div class="laptop-photo"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-laptop-v2.webp"><img src="assets/overview-laptop-v2.png" alt="HoSS website on a laptop at the summit" loading="lazy" decoding="async"></picture><div class="laptop-screen"><iframe data-preview-desktop="live-screen/index.html?v=10" data-preview-mobile="live-screen/mobile.html?v=1" title="Animated HoSS website preview" tabindex="-1" loading="lazy"></iframe></div></div></div>
+ <div class="photo-slot laptop-slot"><div class="laptop-photo"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-laptop-v2.webp"><img src="assets/overview-laptop-v2.png" alt="HoSS website on a laptop at the summit" loading="lazy" decoding="async"></picture><div class="laptop-screen"><iframe data-preview-desktop="live-screen/index.html?v=10" data-preview-mobile="live-screen/mobile.html?v=loop-2" title="Animated HoSS website preview" tabindex="-1" loading="lazy"></iframe></div></div></div>
  <div class="collage-right"><div class="photo-slot speaker-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-speaker-v2.webp"><img src="assets/overview-speaker-v2.png" alt="Speaker at the Hospitality Social Media Summit" decoding="async"></picture></div>
  <div class="collage-materials"><div class="photo-slot programme-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-programme.webp"><img src="assets/overview-programme.png" alt="Summit strategy worksheets and learning materials" loading="lazy" decoding="async"></picture></div><div class="photo-slot badge-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-badge-underlay.webp"><img class="badge-underlay" src="assets/overview-badge-underlay.png" alt="" decoding="async"></picture><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-badge.webp"><img class="badge-photo" src="assets/overview-badge.png" alt="HoSS VIP badge and branded lanyard" loading="lazy" decoding="async"></picture></div></div></div>
 </div>
-</section>
 <div class="problem-grid" aria-label="Design challenges and solutions">
  <article><p class="problem-label">Problem 01</p><h3>Many page types</h3><p>18 layouts on one grid, with shared spacing and&nbsp;building blocks.</p></article>
  <article><p class="problem-label">Problem 02</p><h3>Dense content</h3><p>Flexible blocks that keep their look with short or&nbsp;long texts.</p></article>
  <article><p class="problem-label">Problem 03</p><h3>Developers build the pages</h3><p>Components, variables and&nbsp;text styles ready for handoff.</p></article>
 </div>
+</section>
 <section class="case-section website-layout" id="website">
 <div class="section-heading"><h2>Website</h2><span>/02</span></div>
-<div class="case-copy-panel " data-draft="true"><h3>Structure</h3><p>41 unique pages, each with a desktop and&nbsp;a mobile version. Page by page, I set the visual accents: what readers notice first, how sections flow and&nbsp;where the key action sits — so&nbsp;dense content still reads at a glance.</p></div>
-<figure class="website-wall updated-wall"><picture><source media="(max-width:820px)" srcset="assets/responsive/website-pages-v2.webp"><img src="assets/website-pages-v2.png" alt="HoSS website page layouts arranged in a diagonal composition" loading="lazy" decoding="async"></picture></figure>
+<div class="case-copy-panel structure-copy"><h3>Structure</h3><p class="editorial-title"><em>41 unique pages,</em> each with<br class="structure-break"> a desktop and a mobile version.</p><p class="editorial-description">Page by page, I set the visual accents: what readers notice first, how sections flow and where the key action sits — so dense content still reads at a glance.</p></div>
+<figure class="website-laptop-mockup"><img src="assets/website-laptop-mockup.png" alt="HoSS Online Pass website on a laptop with floating webpage layouts" loading="lazy" decoding="async"></figure>
 <div class="case-copy-panel copy-after-wall" data-draft="true"><p>41 unique pages, each with a desktop and&nbsp;a mobile version. Page by page, I set the visual accents: what readers notice first, how sections flow and&nbsp;where the key action sits — so&nbsp;dense content still reads at a glance.</p></div>
+<figure class="website-wall updated-wall"><picture><source media="(max-width:820px)" srcset="assets/website-pages-final.png"><img src="assets/website-pages-final.png" alt="HoSS website page layouts arranged in a diagonal composition" loading="lazy" decoding="async"></picture></figure>
 <div class="design-system-block">
-<div class="case-copy-panel design-system-copy" data-draft="true"><h3>Design system</h3><p>The approved layouts became a shared design system: components, variables and&nbsp;text styles connect the pages, keep the visual language consistent and&nbsp;make new content easier to build.</p></div>
-<figure class="design-system-figure"><picture><source media="(max-width:820px)" srcset="assets/responsive/design-system-v2.webp"><img src="assets/design-system-v2.png" alt="HoSS design system: 77 component sets, 255 variants, 166 variables and 36 text styles; typography, colour, tokens and components" loading="lazy" decoding="async"></picture></figure>
-<div class="case-copy-panel design-system-end" data-draft="true"><p>Shared foundations bring the website, presentations, social media, email campaigns and&nbsp;printed event materials together. Typography, colour and&nbsp;reusable components keep these touchpoints connected.</p></div>
+<div class="case-copy-panel structure-copy design-system-copy" data-draft="true"><h3>Design system</h3><p class="editorial-title"><em>41 unique pages,</em> each with<br class="structure-break"> a desktop and a mobile version.</p><p class="editorial-description">Page by page, I set the visual accents: what readers notice first, how sections flow and where the key action sits — so dense content still reads at a glance.</p></div>
+<figure class="design-system-figure"><picture><source media="(max-width:820px)" srcset="assets/design-system-new.png"><img src="assets/design-system-new.png" alt="HoSS design system: 77 component sets, 255 variants, 166 variables and 36 text styles; typography, colour, tokens and components" loading="lazy" decoding="async"></picture></figure>
+<div class="case-copy-panel design-system-end" data-draft="true"><p>Shared foundations bring the website, presentations, social media, email campaigns and&nbsp;printed event materials together. Typography, colour and&nbsp;reusable components keep these touchpoints connected, while each format has room to&nbsp;serve its own purpose. The same visual language carries through a&nbsp;programme page, a&nbsp;speaker announcement, a&nbsp;presentation slide and&nbsp;a&nbsp;printed badge. Clear type hierarchies help organise dense information.</p></div>
 </div>
+<figure class="website-mobile-showcase"><img src="assets/website-mobile-showcase.png?v=bg-2" alt="HoSS mobile website shown on a phone alongside desktop and mobile Digital Hub layouts" loading="lazy" decoding="async"></figure>
 </section>
 <section class="case-section" id="presentations"><div class="section-heading"><h2>Presentations</h2><span>/03</span></div><div class="presentation-slots" aria-label="Presentation image placeholders"><div></div><div></div></div></section>
 <section class="case-section" id="social-media"><div class="section-heading"><h2>Social media</h2><span>/04</span></div><p class="preview-note">Social media and&nbsp;email campaigns · Materials will be added here.</p></section>
@@ -313,5 +462,20 @@ const screen=document.querySelector('.laptop-screen');new ResizeObserver(()=>{sc
 
 // Start the screen presentation only while the laptop is in view.
 const laptopFrame=document.querySelector('.laptop-screen iframe');let laptopVisible=false;function syncLaptopVisibility(){if(laptopVisible&&!laptopFrame.hasAttribute('src')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)laptopFrame.src=matchMedia('(max-width:820px)').matches?laptopFrame.dataset.previewMobile:laptopFrame.dataset.previewDesktop;laptopFrame.contentWindow?.postMessage({type:'hoss-preview-visibility',active:laptopVisible},location.origin)}new IntersectionObserver(entries=>{laptopVisible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.25;syncLaptopVisibility()},{threshold:[0,.25]}).observe(document.querySelector('.laptop-slot'));laptopFrame.addEventListener('load',syncLaptopVisibility);
+</script>
+<script>
+// Reduce only the space between hero navigation items by twenty percent.
+const spacedMenu=document.querySelector('#section-navigation .hero-nav-links');
+function tightenHeroMenu(){
+ const desktop=matchMedia('(min-width:821px)').matches;
+ if(!desktop){spacedMenu.style.gap='32px';return;}
+ const titleWidth=document.querySelector('.hero h1').getBoundingClientRect().width;
+ const links=[...spacedMenu.children];
+ const linksWidth=links.reduce((sum,link)=>sum+link.getBoundingClientRect().width,0);
+ spacedMenu.style.width='max-content';spacedMenu.style.justifyContent='flex-start';
+ spacedMenu.style.gap=Math.max(12.8,(titleWidth-linksWidth)/(links.length-1)*.8)+'px';
+}
+new ResizeObserver(tightenHeroMenu).observe(document.querySelector('.hero h1'));
+document.fonts.ready.then(tightenHeroMenu);
 </script>
 </body></html>
