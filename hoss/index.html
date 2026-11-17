@@ -201,9 +201,10 @@ main{padding:40px;display:flex;flex-direction:column;gap:80px}.case-section{padd
  .design-system-block .design-system-figure{width:73.9494853%;max-width:none}
  .case-chapters .design-system-block .case-copy-panel{padding-left:14.7058824%;padding-right:14.7058824%}
 }
-/* Narrow copy has a fixed 960px measure on desktop. */
+/* Narrow copy occupies 70% of the content grid on desktop. */
 @media(min-width:821px){
- .case-chapters .case-copy-panel,.case-chapters .design-system-block .case-copy-panel{width:100%;max-width:960px;padding-left:0;padding-right:0;align-self:center}
+ .problem-grid{width:70%;max-width:none;align-self:center}
+ .case-chapters .case-copy-panel,.case-chapters .design-system-block .case-copy-panel{width:70%;max-width:none;padding-left:0;padding-right:0;align-self:center}
 }
 /* Keep unfinished chapters tall enough for their existing navigation anchors. */
 #social-media,#event-materials{min-height:400px}
