@@ -209,6 +209,8 @@ main{padding:40px;display:flex;flex-direction:column;gap:80px}.case-section{padd
 /* Keep unfinished chapters tall enough for their existing navigation anchors. */
 #social-media,#event-materials{min-height:400px}
 @media(max-width:820px){#social-media,#event-materials{min-height:650px}}
+@media(max-width:820px){.hero::before{background-image:url('assets/responsive/hero-event.webp')}}
+.laptop-slot .laptop-photo picture>img{inset:0;width:100%;height:100%;object-fit:fill}
 </style>
 </head>
 <body>
@@ -224,9 +226,9 @@ main{padding:40px;display:flex;flex-direction:column;gap:80px}.case-section{padd
 <div class="section-heading"><h2>Overview</h2><span>/01</span></div>
 <div class="case-copy-panel overview-lead" data-draft="true"><p>Hospitality Social Media Summit (HoSS) is a conference run by Kordie. It needed one website for everything around the event: programme, speakers, registration, sponsorship and&nbsp;articles, plus visuals for the event itself.</p></div>
 <div class="overview-collage">
- <div class="photo-slot laptop-slot"><div class="laptop-photo"><img src="assets/overview-laptop-v2.png" alt="HoSS website on a laptop at the summit"><div class="laptop-screen"><iframe src="live-screen/index.html?v=9" title="Animated HoSS website preview" tabindex="-1" loading="lazy"></iframe></div></div></div>
- <div class="collage-right"><div class="photo-slot speaker-slot"><img src="assets/overview-speaker-v2.png" alt="Speaker at the Hospitality Social Media Summit"></div>
- <div class="collage-materials"><div class="photo-slot programme-slot"><img src="assets/overview-programme.png" alt="Summit strategy worksheets and learning materials" loading="lazy"></div><div class="photo-slot badge-slot"><img class="badge-underlay" src="assets/overview-badge-underlay.png" alt=""><img class="badge-photo" src="assets/overview-badge.png" alt="HoSS VIP badge and branded lanyard" loading="lazy"></div></div></div>
+ <div class="photo-slot laptop-slot"><div class="laptop-photo"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-laptop-v2.webp"><img src="assets/overview-laptop-v2.png" alt="HoSS website on a laptop at the summit" loading="lazy" decoding="async"></picture><div class="laptop-screen"><iframe data-preview-desktop="live-screen/index.html?v=10" data-preview-mobile="live-screen/mobile.html?v=1" title="Animated HoSS website preview" tabindex="-1" loading="lazy"></iframe></div></div></div>
+ <div class="collage-right"><div class="photo-slot speaker-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-speaker-v2.webp"><img src="assets/overview-speaker-v2.png" alt="Speaker at the Hospitality Social Media Summit" decoding="async"></picture></div>
+ <div class="collage-materials"><div class="photo-slot programme-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-programme.webp"><img src="assets/overview-programme.png" alt="Summit strategy worksheets and learning materials" loading="lazy" decoding="async"></picture></div><div class="photo-slot badge-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-badge-underlay.webp"><img class="badge-underlay" src="assets/overview-badge-underlay.png" alt="" decoding="async"></picture><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-badge.webp"><img class="badge-photo" src="assets/overview-badge.png" alt="HoSS VIP badge and branded lanyard" loading="lazy" decoding="async"></picture></div></div></div>
 </div>
 </section>
 <div class="problem-grid" aria-label="Design challenges and solutions">
@@ -237,11 +239,11 @@ main{padding:40px;display:flex;flex-direction:column;gap:80px}.case-section{padd
 <section class="case-section website-layout" id="website">
 <div class="section-heading"><h2>Website</h2><span>/02</span></div>
 <div class="case-copy-panel " data-draft="true"><h3>Structure</h3><p>41 unique pages, each with a desktop and&nbsp;a mobile version. Page by page, I set the visual accents: what readers notice first, how sections flow and&nbsp;where the key action sits — so&nbsp;dense content still reads at a glance.</p></div>
-<figure class="website-wall updated-wall"><img src="assets/website-pages-v2.png" alt="HoSS website page layouts arranged in a diagonal composition" loading="lazy"></figure>
+<figure class="website-wall updated-wall"><picture><source media="(max-width:820px)" srcset="assets/responsive/website-pages-v2.webp"><img src="assets/website-pages-v2.png" alt="HoSS website page layouts arranged in a diagonal composition" loading="lazy" decoding="async"></picture></figure>
 <div class="case-copy-panel copy-after-wall" data-draft="true"><p>41 unique pages, each with a desktop and&nbsp;a mobile version. Page by page, I set the visual accents: what readers notice first, how sections flow and&nbsp;where the key action sits — so&nbsp;dense content still reads at a glance.</p></div>
 <div class="design-system-block">
 <div class="case-copy-panel design-system-copy" data-draft="true"><h3>Design system</h3><p>The approved layouts became a shared design system: components, variables and&nbsp;text styles connect the pages, keep the visual language consistent and&nbsp;make new content easier to build.</p></div>
-<figure class="design-system-figure"><img src="assets/design-system-v2.png" alt="HoSS design system: 77 component sets, 255 variants, 166 variables and 36 text styles; typography, colour, tokens and components" loading="lazy"></figure>
+<figure class="design-system-figure"><picture><source media="(max-width:820px)" srcset="assets/responsive/design-system-v2.webp"><img src="assets/design-system-v2.png" alt="HoSS design system: 77 component sets, 255 variants, 166 variables and 36 text styles; typography, colour, tokens and components" loading="lazy" decoding="async"></picture></figure>
 <div class="case-copy-panel design-system-end" data-draft="true"><p>Shared foundations bring the website, presentations, social media, email campaigns and&nbsp;printed event materials together. Typography, colour and&nbsp;reusable components keep these touchpoints connected.</p></div>
 </div>
 </section>
@@ -310,6 +312,6 @@ const heroTitle=document.querySelector('.hero h1');new ResizeObserver(()=>{docum
 const screen=document.querySelector('.laptop-screen');new ResizeObserver(()=>{screen.querySelector('iframe').style.transform='scale('+screen.clientWidth/1920+')'}).observe(screen);
 
 // Start the screen presentation only while the laptop is in view.
-const laptopFrame=document.querySelector('.laptop-screen iframe');let laptopVisible=false;function syncLaptopVisibility(){laptopFrame.contentWindow?.postMessage({type:'hoss-preview-visibility',active:laptopVisible},location.origin)}new IntersectionObserver(entries=>{laptopVisible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.25;syncLaptopVisibility()},{threshold:[0,.25]}).observe(document.querySelector('.laptop-slot'));laptopFrame.addEventListener('load',syncLaptopVisibility);
+const laptopFrame=document.querySelector('.laptop-screen iframe');let laptopVisible=false;function syncLaptopVisibility(){if(laptopVisible&&!laptopFrame.hasAttribute('src')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)laptopFrame.src=matchMedia('(max-width:820px)').matches?laptopFrame.dataset.previewMobile:laptopFrame.dataset.previewDesktop;laptopFrame.contentWindow?.postMessage({type:'hoss-preview-visibility',active:laptopVisible},location.origin)}new IntersectionObserver(entries=>{laptopVisible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.25;syncLaptopVisibility()},{threshold:[0,.25]}).observe(document.querySelector('.laptop-slot'));laptopFrame.addEventListener('load',syncLaptopVisibility);
 </script>
 </body></html>
