@@ -367,12 +367,20 @@ body{overflow-x:clip}
 .ds-metric-value>sup{font-size:3.194444cqw;font-weight:400;color:#e11d2e;line-height:1;position:static}
 .ds-metric-label{font-size:.833333cqw;letter-spacing:.025cqw;text-transform:uppercase;line-height:normal;color:#6c6f76}
 @media(max-width:820px){.case-chapters #website .design-system-figure{gap:32px}}
+@media(min-width:1441px){.hero .top,.hero .hero-body,.hero #section-navigation{width:1360px;max-width:100%;margin-left:auto;margin-right:auto;box-sizing:border-box}.hero .stats{flex-basis:min(440px,calc(47.8469vw - 358.66px))}.hero #section-navigation{padding-left:0;padding-right:0}}
+@media(min-width:1024px){.hero #section-navigation .hero-nav-links{width:100%!important;min-width:0;justify-content:space-between!important;gap:16px!important}}
+/* Mobile: smaller corner radii and tighter spacing. */
+@media(max-width:820px){:root{--photo-radius:6px}.photo-slot,.website-wall img,.website-pair img,.presentation-slots>div,.website-laptop-mockup,.website-mobile-showcase{border-radius:6px}.website-layout .updated-wall,.website-layout .updated-wall img{border-radius:5px}#website.website-layout{grid-template-columns:minmax(0,1fr)}.case-chapters #website .copy-after-wall{width:100%;padding:32px 0}.case-chapters #website .design-system-end{width:100%;margin:0 auto;padding:48px 0}.case-chapters #website .design-system-copy{margin-bottom:48px}}
+/* Letter flip for large uppercase headings, as on the home page. */
+.fl-w{white-space:nowrap}.fl-ch{display:inline-block;position:relative;transform-style:preserve-3d}.fl-ch .fo,.fl-ch .fi{display:inline-block;transform-origin:50% 50% -.4em;backface-visibility:hidden}.fl-ch .fo{position:absolute;left:0;top:0;opacity:0}.fl-ch .fo::before{content:attr(data-c)}.case-chapters .section-heading h2 span{font:inherit;letter-spacing:inherit;flex:none}.fl-ch.flip .fo{animation:flOut .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both}.fl-ch.flip .fi{animation:flIn .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both,flRedB 1.5s ease var(--fd,0ms) both}
+@keyframes flOut{from{transform:none;opacity:1}to{transform:translateY(-.2em) rotateX(90deg);opacity:0}}@keyframes flIn{from{transform:translateY(.2em) rotateX(-90deg);opacity:0}to{transform:none;opacity:1}}@keyframes flRedB{0%,45%{color:var(--accent)}100%{color:var(--fc)}}
+@media(prefers-reduced-motion:reduce){.fl-ch.flip .fo,.fl-ch.flip .fi{animation:none}}
 </style>
 </head>
 <body>
 <header class="hero" id="top">
  <div class="top"><a class="back" href="/#work"><span class="arrow" aria-hidden="true">←</span><span>All projects</span></a><div class="tools"><a class="cv" href="/Alina-Matiushyna-CV.pdf">CV <span class="arrow">↓</span></a><span class="language" aria-label="English">EN</span></div></div>
- <div class="hero-body"><div class="hero-copy"><p class="eyebrow">Kordie · 2025–2026</p><h1><span class="nc">HoSS</span> — Hospitality Social Media Summit: website and&nbsp;design system</h1><p class="summary">One visual language for&nbsp;everything around the summit — programme, faculty, online pass, sponsorship and&nbsp;news, on desktop and&nbsp;mobile.</p></div><div class="stats"><div><div class="stat-number">40<span class="plus">+</span></div><div class="stat-label">Website pages</div></div><div><div class="stat-number">130<span class="plus">+</span></div><div class="stat-label">Components</div></div><div><div class="stat-number">37<span class="plus">+</span></div><div class="stat-label">Presentation</div></div><div><div class="stat-number">125<span class="plus">+</span></div><div class="stat-label">Banners</div></div></div></div>
+ <div class="hero-body"><div class="hero-copy"><p class="eyebrow">HoSS · Kordie · 2025–2026</p><h1>One visual language <br>for the&nbsp;Hospitality <br>Social Media Summit</h1><p class="summary">From the first web page to the printed badge — the summit’s website, slides,&nbsp;social media and&nbsp;event materials, designed as one event.</p></div><div class="stats"><div><div class="stat-number">15</div><div class="stat-label">Website pages</div></div><div><div class="stat-number">97</div><div class="stat-label">Components</div></div><div><div class="stat-number">37<span class="plus">+</span></div><div class="stat-label">Presentations</div></div><div><div class="stat-number">125<span class="plus">+</span></div><div class="stat-label">Banners</div></div></div></div>
 <nav class="sections-nav" aria-label="Case sections" id="section-navigation"><div class="hero-nav-links"><a href="#overview"><span class="nav-label">Overview</span> <span class="arrow separator" aria-hidden="true">↘</span></a><a href="#website"><span class="nav-label">Website</span> <span class="arrow separator" aria-hidden="true">↘</span></a><a href="#presentations"><span class="nav-label">Presentations</span> <span class="arrow separator" aria-hidden="true">↘</span></a><a href="#social-media"><span class="nav-label">Social media</span> <span class="arrow separator" aria-hidden="true">↘</span></a><a href="#event-materials"><span class="nav-label">Event materials</span> <span class="arrow separator" aria-hidden="true">↘</span></a></div></nav>
 </header>
 
@@ -380,28 +388,28 @@ body{overflow-x:clip}
 <main class="case-chapters">
 <section class="case-section overview-layout" id="overview">
 <div class="section-heading"><h2>Overview</h2><span>/01</span></div>
-<div class="case-copy-panel overview-lead"><p class="editorial-title">Hospitality Social Media Summit (HoSS) is a <em>conference</em> run by Kordie.</p><p class="editorial-description">It needed one website for everything around the event: programme, speakers, registration, sponsorship and articles, plus visuals for the event itself.</p></div>
+<div class="case-copy-panel overview-lead"><p class="editorial-title">One event. Every format. <em>Zero</em>&nbsp;mixed&nbsp;signals.</p><p class="editorial-description">Website, slides, social media and print share one language of type, colour and rhythm — online and in&nbsp;the&nbsp;room.</p></div>
 <div class="overview-collage">
  <div class="photo-slot laptop-slot"><div class="laptop-photo"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-laptop-v2.webp"><img src="assets/overview-laptop-v2.png" alt="HoSS website on a laptop at the summit" loading="lazy" decoding="async"></picture><div class="laptop-screen"><iframe data-preview-desktop="live-screen/index.html?v=10" data-preview-mobile="live-screen/mobile.html?v=loop-2" title="Animated HoSS website preview" tabindex="-1" loading="lazy"></iframe></div></div></div>
  <div class="collage-right"><div class="photo-slot speaker-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-speaker-v2.webp"><img src="assets/overview-speaker-v2.png" alt="Speaker at the Hospitality Social Media Summit" decoding="async"></picture></div>
  <div class="collage-materials"><div class="photo-slot programme-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-programme.webp"><img src="assets/overview-programme.png" alt="Summit strategy worksheets and learning materials" loading="lazy" decoding="async"></picture></div><div class="photo-slot badge-slot"><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-badge-underlay.webp"><img class="badge-underlay" src="assets/overview-badge-underlay.png" alt="" decoding="async"></picture><picture><source media="(max-width:820px)" srcset="assets/responsive/overview-badge.webp"><img class="badge-photo" src="assets/overview-badge.png" alt="HoSS VIP badge and branded lanyard" loading="lazy" decoding="async"></picture></div></div></div>
 </div>
 <div class="problem-grid" aria-label="Design challenges and solutions">
- <article><p class="problem-label">Problem 01</p><h3>Many page types</h3><p>18 layouts on one grid, with shared spacing and&nbsp;building blocks.</p></article>
- <article><p class="problem-label">Problem 02</p><h3>Dense content</h3><p>Flexible blocks that keep their look with short or&nbsp;long texts.</p></article>
- <article><p class="problem-label">Problem 03</p><h3>Developers build the pages</h3><p>Components, variables and&nbsp;text styles ready for handoff.</p></article>
+ <article><p class="problem-label">Challenge 01</p><h3>No history yet</h3><p>A first-time event, so the site had to earn trust with&nbsp;clear&nbsp;structure, real faces and&nbsp;numbers.</p></article>
+ <article><p class="problem-label">Challenge 02</p><h3>Dense content</h3><p>Programme, faculty and sponsorship details had&nbsp;to&nbsp;read&nbsp;at&nbsp;a&nbsp;glance&nbsp;on any&nbsp;screen.</p></article>
+ <article><p class="problem-label">Challenge 03</p><h3>Many formats</h3><p>Website, slides, social posts and print all&nbsp;had&nbsp;to&nbsp;look&nbsp;like&nbsp;one&nbsp;event.</p></article>
 </div>
 </section>
 <section class="case-section website-layout" id="website">
 <div class="section-heading"><h2>Website</h2><span>/02</span></div>
-<div class="case-copy-panel structure-copy"><h3>Structure</h3><p class="editorial-title"><em>41 unique pages,</em> each with<br class="structure-break"> a desktop and a mobile version.</p><p class="editorial-description">Page by page, I set the visual accents: what readers notice first, how sections flow and where the key action sits — so dense content still reads at a glance.</p></div>
+<div class="case-copy-panel structure-copy"><h3>Structure</h3><p class="editorial-title">Lots to say. <em>One&nbsp;&#8239;clear</em><br class="structure-break"> <em>path</em> to&nbsp;the&nbsp;ticket.</p><p class="editorial-description">Programme, faculty, passes, sponsorship — every page leads to one step: booking&nbsp;a&nbsp;place.</p></div>
 <figure class="website-laptop-mockup"><img src="assets/website-laptop-mockup.png" alt="HoSS Online Pass website on a laptop with floating webpage layouts" loading="lazy" decoding="async"></figure>
-<div class="case-copy-panel copy-after-wall" data-draft="true"><p>41 unique pages, each with a desktop and&nbsp;a mobile version. Page by page, I set the visual accents: what readers notice first, how sections flow and&nbsp;where the key action sits — so&nbsp;dense content still reads at a glance.</p></div>
+<div class="case-copy-panel copy-after-wall" data-draft="true"><p>15 unique pages, each with a desktop and&nbsp;a mobile version. Behind them is a lot of visual work: graphics drawn for the site and photos selected and&nbsp;edited, so every section feels like the same event. On every page I set what readers see first, how sections flow and&nbsp;where the key action sits&nbsp;— so&nbsp;dense content still reads at a&nbsp;glance.</p></div>
 <figure class="website-wall updated-wall"><picture><source media="(max-width:820px)" srcset="assets/website-pages-final.png"><img src="assets/website-pages-final.png" alt="HoSS website page layouts arranged in a diagonal composition" loading="lazy" decoding="async"></picture></figure>
 <div class="design-system-block">
-<div class="case-copy-panel structure-copy design-system-copy" data-draft="true"><h3>Design system</h3><p class="editorial-title"><em>41 unique pages,</em> each with<br class="structure-break"> a desktop and a mobile version.</p><p class="editorial-description">Page by page, I set the visual accents: what readers notice first, how sections flow and where the key action sits — so dense content still reads at a glance.</p></div>
-<figure class="design-system-figure" id="design-system-visual"><div class="ds-metrics" aria-label="Design system statistics"><div class="ds-metric"><div class="ds-metric-value"><span>77</span><sup>+</sup></div><div class="ds-metric-label">Component sets</div></div><div class="ds-metric"><div class="ds-metric-value"><span>255</span><sup>+</sup></div><div class="ds-metric-label">Variants</div></div><div class="ds-metric"><div class="ds-metric-value"><span>166</span><sup>+</sup></div><div class="ds-metric-label">Variables</div></div><div class="ds-metric"><div class="ds-metric-value"><span>36</span><sup>+</sup></div><div class="ds-metric-label">Text styles</div></div></div><picture><source media="(max-width:820px)" srcset="assets/design-system-panels-v2.png"><img src="assets/design-system-panels-v2.png" width="2048" height="1040" alt="HoSS design system: typography, colour, tokens and components" loading="eager" decoding="async"></picture></figure>
-<div class="case-copy-panel design-system-end" data-draft="true"><p>Shared foundations bring the website, presentations, social media, email campaigns and&nbsp;printed event materials together. Typography, colour and&nbsp;reusable components keep these touchpoints connected, while each format has room to&nbsp;serve its own purpose. The same visual language carries through a&nbsp;programme page, a&nbsp;speaker announcement, a&nbsp;presentation slide and&nbsp;a&nbsp;printed badge. Clear type hierarchies help organise dense information.</p></div>
+<div class="case-copy-panel structure-copy design-system-copy" data-draft="true"><h3>Design system</h3><p class="editorial-title">From <em>layouts</em> to a&nbsp;<em>system</em>:<br class="structure-break"> <em>97</em>&nbsp;components, <em>166</em>&nbsp;tokens.</p><p class="editorial-description">Repeating patterns became components, variables and&nbsp;text styles — so every new page&nbsp;stays&nbsp;on&#8209;brand.</p></div>
+<figure class="design-system-figure" id="design-system-visual"><picture><source media="(max-width:820px)" srcset="assets/design-system-panels-v2.png"><img src="assets/design-system-panels-v2.png" width="2048" height="1040" alt="HoSS design system: typography, colour, tokens and components" loading="eager" decoding="async"></picture></figure>
+<div class="case-copy-panel design-system-end" data-draft="true"><p>As the programme, faculty and offers took shape, new pages were assembled from the same blocks — so the site kept growing without losing its look or its focus on&nbsp;booking. I&nbsp;worked closely with the copywriters and front-end developers to keep content, design and build in&nbsp;step.</p></div>
 </div>
 <figure class="website-mobile-showcase"><img src="assets/website-mobile-showcase-current.png" alt="HoSS mobile website shown on a phone alongside desktop and mobile Digital Hub layouts" loading="lazy" decoding="async"></figure>
 </section>
@@ -486,5 +494,30 @@ function tightenHeroMenu(){
 }
 new ResizeObserver(tightenHeroMenu).observe(document.querySelector('.hero h1'));
 document.fonts.ready.then(tightenHeroMenu);
+</script>
+<script>
+// Large uppercase headings flip letter by letter, as on the home page: the hero title on load, on hover and every few seconds; section titles on entering the viewport and on hover.
+(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  function split(t,step){var i=0;t.setAttribute('aria-label',t.textContent.replace(/\s+/g,' ').trim());
+    [].slice.call(t.childNodes).forEach(function(n){if(n.nodeType!==3)return;var f=document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(function(w){if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(w));return}
+        var s=document.createElement('span');s.className='fl-w';s.setAttribute('aria-hidden','true');
+        w.split('').forEach(function(c){var ch=document.createElement('span');ch.className='fl-ch';ch.style.setProperty('--fd',(i++)*step+'ms');ch.innerHTML='<span class="fo" data-c="'+c+'"></span><span class="fi">'+c+'</span>';s.appendChild(ch)});f.appendChild(s)});
+      t.replaceChild(f,n)});return i}
+  function flipper(t,step){var n=split(t,step),cs=t.querySelectorAll('.fl-ch'),busy=false,dur=650+n*step+900;
+    return function(done){if(busy)return;busy=true;t.style.setProperty('--fc',getComputedStyle(t).color);
+      cs.forEach(function(c){c.classList.remove('flip')});void t.offsetWidth;cs.forEach(function(c){c.classList.add('flip')});
+      setTimeout(function(){busy=false;cs.forEach(function(c){c.classList.remove('flip')});if(done)done()},dur)}}
+  var h1=document.querySelector('.hero-copy h1');
+  if(h1){var play=flipper(h1,40),timer=0,visible=true;
+    function queue(){clearTimeout(timer);if(visible&&!document.hidden)timer=setTimeout(function(){play(queue)},4000)}
+    h1.addEventListener('mouseenter',function(){play(queue)});
+    if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting;if(visible)queue();else clearTimeout(timer)},{threshold:.1}).observe(h1);
+    document.addEventListener('visibilitychange',queue);
+    (document.fonts?document.fonts.ready:Promise.resolve()).then(function(){play(queue)})}
+  [].forEach.call(document.querySelectorAll('.case-chapters .section-heading h2'),function(t){var play=flipper(t,55);
+    t.addEventListener('mouseenter',function(){play()});
+    if('IntersectionObserver' in window)new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)play()})},{threshold:.3,rootMargin:'0px 0px -24px 0px'}).observe(t)});
+})();
 </script>
 </body></html>
