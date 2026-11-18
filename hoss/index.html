@@ -497,7 +497,7 @@ html,body{background:#fff}
  .sc-track{padding-top:16px!important}
  .case-chapters #website .recap-note{padding-top:24px}
 }
-</style></head>
+</style><style>.picker-top-label{display:none}.mobile-section-picker[open] summary .picker-position,.mobile-section-picker[open] summary .picker-label{display:none}.mobile-section-picker[open] summary .picker-top-label{display:inline}</style></head>
 <body>
 <header class="hero" id="top">
  <div class="top"><a class="back" href="/#work"><span class="arrow" aria-hidden="true">←</span><span>All projects</span></a><div class="tools"><a class="cv" href="/Alina-Matiushyna-CV.pdf">CV <span class="arrow">↓</span></a><nav class="hl2" aria-label="Website language" tabindex="-1"><a href="#" lang="en" title="English" class="on" aria-current="true">EN</a><a href="#" lang="es" title="Español" aria-disabled="true">ES</a><a href="#" lang="uk" title="Українська" aria-disabled="true">UA</a><a href="#" lang="ru" title="Русский" aria-disabled="true">RU</a></nav></div></div>
@@ -549,6 +549,10 @@ const sectionPicker=document.createElement('details');
 sectionPicker.className='mobile-section-picker';
 sectionPicker.innerHTML='<summary aria-label="Choose a case section"><span class="picker-position">01</span><span class="picker-label">Website</span><span class="picker-chevron" aria-hidden="true">↓</span></summary><nav class="picker-options" aria-label="Choose a case section">'+sections.map((s,i)=>'<a href="#'+s.id+'"><span class="picker-position">0'+(i+1)+'</span><span>'+s.querySelector('h2').textContent+'</span></a>').join('')+'</nav>';
 fixedHeader.appendChild(sectionPicker);
+const pickerSummary=sectionPicker.querySelector('summary');
+const topLabel=document.createElement('span');topLabel.className='picker-top-label';topLabel.textContent='Back to top';pickerSummary.insertBefore(topLabel,pickerSummary.firstChild);
+pickerSummary.addEventListener('click',function(e){if(!sectionPicker.open)return;e.preventDefault();sectionPicker.open=false;history.pushState(null,'','#top');window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
+sectionPicker.addEventListener('toggle',function(){pickerSummary.setAttribute('aria-label',sectionPicker.open?'Back to top':'Choose a case section');});
 const allProjectsLink=document.createElement('a');
 allProjectsLink.href='/#work';
 allProjectsLink.className='picker-all-projects';
