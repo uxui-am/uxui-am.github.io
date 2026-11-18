@@ -522,21 +522,21 @@ html,body{background:#fff}
  .hero-section-picker summary::-webkit-details-marker{display:none}
  .hero-section-picker .picker-label{text-transform:uppercase}
  .hero-section-picker[open]{background:var(--ink)}
- .hero-section-picker[open] summary{background:#fff;color:var(--ink);box-shadow:-16px 0 #fff,16px 0 #fff}
- .hero-section-picker[open] summary .picker-position{color:var(--ink)}
+ .hero-section-picker[open] summary{background:var(--ink);color:#fff;box-shadow:-16px 0 var(--ink),16px 0 var(--ink)}
  .hero-section-picker .picker-position{font:400 10.404px/1.3 Onest,sans-serif;letter-spacing:.03em;color:var(--muted)}
  .hero-section-picker .picker-chevron{margin-left:auto;font:600 18px/18px 'Fustat Arrows',sans-serif}
  .hero-section-picker[open] .picker-chevron{transform:rotate(180deg)}
  .hero-section-picker .picker-options{position:absolute;top:56px;left:-16px;right:-16px;background:rgba(16,17,20,.98);border-bottom:1px solid #6c6f76}
  .hero #section-navigation .picker-options a{display:flex;height:52px;min-height:52px;padding:0 16px;justify-content:flex-start;gap:16px;border:0;border-top:1px solid #6c6f76;font:400 16px/16px Gabarito,sans-serif;color:#fff}
- .hero #section-navigation .picker-options a[aria-current=location]{background:rgba(255,255,255,.12)}
+ .hero #section-navigation .picker-options a[aria-current=location]{background:#fff!important;color:var(--ink)!important}
+ .hero #section-navigation .picker-options a[aria-current=location] .picker-position{color:var(--ink)}
  .mobile-section-picker .picker-options a,
  .hero #section-navigation .picker-options a{border-top:1px solid rgba(255,255,255,.18)!important}
  .mobile-section-picker .picker-options a:first-child,
  .hero #section-navigation .picker-options a:first-child,
  .mobile-section-picker .picker-options .picker-all-projects,
  .hero #section-navigation .picker-options .picker-all-projects{border-top-color:#fff!important}
- .hero #section-navigation .picker-options a:first-child:not(.picker-all-projects){border-top-color:rgba(255,255,255,.18)!important}
+ .hero #section-navigation .picker-options a:first-child:not(.picker-all-projects){border-top-color:#fff!important}
 }
 </style></head>
 <body>
@@ -602,8 +602,8 @@ sectionPicker.querySelector('nav').appendChild(allProjectsLink);
 const heroPicker=sectionPicker.cloneNode(true);
 heroPicker.className='hero-section-picker';
 heroPicker.querySelector('.picker-top-label').remove();
-heroPicker.querySelector('.picker-label').textContent='Overview';
-heroPicker.querySelector('a[href="#overview"]').remove();
+heroPicker.querySelector('.picker-label').textContent='Explore the case';
+heroPicker.querySelector('summary .picker-position').remove();
 heroPicker.querySelector('summary').setAttribute('aria-label','Choose a case section');
 initialMenu.appendChild(heroPicker);
 heroPicker.querySelector('nav').addEventListener('click',e=>{if(e.target.closest('a'))heroPicker.open=false});
