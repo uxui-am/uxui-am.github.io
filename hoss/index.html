@@ -449,7 +449,7 @@ html,body{background:#fff}
 .recap-note em{font-family:Fraunces,serif;font-style:italic;font-weight:400;font-size:1.06em;letter-spacing:-.01em}
 .sc-track{transition:none!important}.sc-progress span{transition:none!important}
 </style>
-<style>.case-chapters #website .pages-copy{max-width:none;justify-self:stretch;padding:120px 0}.case-chapters #website .pages-copy .editorial-title,.case-chapters #website .pages-copy .editorial-description{grid-row:1}@media(max-width:820px){.case-chapters #website .pages-copy{grid-template-columns:1fr;padding:48px 0}.case-chapters #website .pages-copy .editorial-title{grid-column:1;grid-row:1;font-size:32px;line-height:1.1}.case-chapters #website .pages-copy .editorial-description{grid-column:1;grid-row:2}}</style><style>@media(min-width:821px){.case-chapters #website .pages-copy{grid-template-columns:minmax(0, 1fr) minmax(0, 547px);column-gap:40px;align-items:center}}</style><style>.case-chapters #website .design-system-block .visuals-copy{width:100%;max-width:none;margin:0;padding:120px 0!important;grid-template-columns:minmax(0,1fr) minmax(0,547px);column-gap:40px}.case-chapters #website .visuals-copy .editorial-title,.case-chapters #website .visuals-copy .editorial-description{grid-row:1}@media(max-width:820px){.case-chapters #website .design-system-block .visuals-copy{grid-template-columns:1fr;padding:48px 0!important}.case-chapters #website .visuals-copy .editorial-title{grid-column:1;grid-row:1;font-size:32px;line-height:1.1}.case-chapters #website .visuals-copy .editorial-description{grid-column:1;grid-row:2}}</style><style>@media(min-width:821px){.case-chapters #website .design-system-block .visuals-copy{padding-bottom:16px!important}}</style><style>@media(min-width:1201px){.case-chapters .case-copy-panel .editorial-title,.case-chapters .overview-lead .editorial-title,.case-chapters .structure-copy .editorial-title{font-size:48px;line-height:1.12}}</style><style>@media(min-width:1201px){.case-chapters #website .website-intro{max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,590px)}.case-chapters #website .website-intro .editorial-description{max-width:none}}</style></head>
+<style>.case-chapters #website .pages-copy{max-width:none;justify-self:stretch;padding:120px 0}.case-chapters #website .pages-copy .editorial-title,.case-chapters #website .pages-copy .editorial-description{grid-row:1}@media(max-width:820px){.case-chapters #website .pages-copy{grid-template-columns:1fr;padding:48px 0}.case-chapters #website .pages-copy .editorial-title{grid-column:1;grid-row:1;font-size:32px;line-height:1.1}.case-chapters #website .pages-copy .editorial-description{grid-column:1;grid-row:2}}</style><style>@media(min-width:821px){.case-chapters #website .pages-copy{grid-template-columns:minmax(0, 1fr) minmax(0, 547px);column-gap:40px;align-items:center}}</style><style>.case-chapters #website .design-system-block .visuals-copy{width:100%;max-width:none;margin:0;padding:120px 0!important;grid-template-columns:minmax(0,1fr) minmax(0,547px);column-gap:40px}.case-chapters #website .visuals-copy .editorial-title,.case-chapters #website .visuals-copy .editorial-description{grid-row:1}@media(max-width:820px){.case-chapters #website .design-system-block .visuals-copy{grid-template-columns:1fr;padding:48px 0!important}.case-chapters #website .visuals-copy .editorial-title{grid-column:1;grid-row:1;font-size:32px;line-height:1.1}.case-chapters #website .visuals-copy .editorial-description{grid-column:1;grid-row:2}}</style><style>@media(min-width:821px){.case-chapters #website .design-system-block .visuals-copy{padding-bottom:16px!important}}</style><style>@media(min-width:1201px){.case-chapters .case-copy-panel .editorial-title,.case-chapters .overview-lead .editorial-title,.case-chapters .structure-copy .editorial-title{font-size:48px;line-height:1.12}}</style><style>@media(min-width:1201px){.case-chapters #website .website-intro{max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,590px)}.case-chapters #website .website-intro .editorial-description{max-width:none}}</style><style>@media(max-width:820px){html,body{overflow-x:clip}}</style><style>@media(min-width:821px) and (max-width:1439px){.case-chapters #website .pages-copy,.case-chapters #website .website-intro,.case-chapters #website .design-system-block .visuals-copy{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:24px}}</style></head>
 <body>
 <header class="hero" id="top">
  <div class="top"><a class="back" href="/#work"><span class="arrow" aria-hidden="true">←</span><span>All projects</span></a><div class="tools"><a class="cv" href="/Alina-Matiushyna-CV.pdf">CV <span class="arrow">↓</span></a><span class="language" aria-label="English">EN</span></div></div>
@@ -528,9 +528,9 @@ function updateNavigation(){
  fixedHeader.classList.toggle('is-visible',visible);
  fixedHeader.inert=!visible;
  fixedHeader.setAttribute('aria-hidden',String(!visible));
- const threshold=fixedHeader.offsetHeight+48;
+ const threshold=fixedHeader.offsetHeight+121;
  let current=sections[0].id;
- for(const section of sections)if(section.getBoundingClientRect().top<=threshold)current=section.id;
+ for(const section of sections){const heading=section.querySelector('.section-heading');if(heading&&heading.getBoundingClientRect().top<=threshold)current=section.id;}
  if(scrollY>0&&Math.ceil(scrollY+innerHeight)>=document.documentElement.scrollHeight-2)current=sections[sections.length-1].id;
  for(const menu of menus)for(const link of menu.querySelectorAll('a')){
   if(link.hash==='#'+current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');
@@ -686,7 +686,9 @@ size();render();addEventListener("resize",function(){size();render()});addEventL
   if(!heading)return;
   event.preventDefault();
   var header=document.querySelector('.fixed-header');
-  var top=heading.getBoundingClientRect().top+window.scrollY-header.offsetHeight-120;
+  var top=0;
+  for(var node=heading;node;node=node.offsetParent)top+=node.offsetTop;
+  top-=header.offsetHeight+120;
   history.pushState(null,'',link.hash);
   window.scrollTo({top:Math.max(0,top),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
  });
