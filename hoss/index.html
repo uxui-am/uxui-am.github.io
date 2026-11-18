@@ -387,11 +387,67 @@ body{overflow-x:clip}
 .case-chapters #website .showcase-loop{width:100vw;max-width:none;margin-left:calc(50% - 50vw);border-radius:0;overflow:visible}
 .showcase-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--sp,40px);scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch;outline:none}
 .showcase-track::-webkit-scrollbar{display:none}.showcase-track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
-.showcase-slide{flex:0 0 clamp(260px,40vw,600px);aspect-ratio:1/1;scroll-snap-align:start;border-radius:10px;overflow:hidden}.showcase-slide img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.showcase-slide{flex:0 0 500px;width:500px;height:500px;aspect-ratio:1/1;scroll-snap-align:start;border-radius:10px;overflow:hidden}.showcase-slide img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 .showcase-label{padding:0 var(--sp,40px) 40px;text-align:center;font-size:16px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#6b6e75}@media(min-width:1441px){.showcase-label{--sp:calc((100vw - 1360px)/2)}}@media(max-width:820px){.showcase-label{--sp:20px;font-size:13px;padding-bottom:24px}}
 .showcase-slide.is-light{position:relative}.showcase-slide.is-light::after{content:"";position:absolute;inset:0;border:1px solid rgba(16,17,20,.1);border-radius:inherit;pointer-events:none}
 @media(min-width:1441px){.showcase-track{--sp:calc((100vw - 1360px)/2)}}
-@media(max-width:820px){.showcase-track{--sp:20px;gap:10px}.showcase-slide{flex-basis:78vw;border-radius:6px}}
+@media(max-width:820px){.showcase-track{--sp:20px;gap:10px}.showcase-slide{flex-basis:78vw;width:78vw;height:78vw;border-radius:6px}}
+.recap-note a{color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;white-space:nowrap}.recap-note a:hover{text-decoration-thickness:2px}
+
+/* Showcase strip: one continuous band, no gaps or rounded corners. */
+.showcase-track,.showcase-track{gap:0!important}.showcase-slide{border-radius:0!important}.showcase-slide.is-light::after{display:none}
+html,body{background:#fff}
+/* Continuous white chapters, full width, 120px before each chapter (desktop). */
+@media(min-width:821px){.case-chapters{overflow:clip;gap:0;position:relative;z-index:1;background:#fff;padding-top:160px!important;padding-left:0!important;padding-right:0!important}.case-chapters>section.case-section{width:100%!important;max-width:none!important;box-sizing:border-box;padding-left:40px!important;padding-right:40px!important}.case-chapters>section{background:#fff}.case-chapters>section.case-section+section.case-section{padding-top:160px!important}}
+/* Space between chapters (no divider line). */
+.case-chapters>section.case-section+section.case-section{position:relative}
+@media(min-width:821px){.case-chapters>section.case-section+section.case-section{margin-top:160px}.case-chapters #overview .problem-grid{min-height:0}.case-chapters #website .recap-note{padding-bottom:0}}
+@media(max-width:820px){.case-chapters>section.case-section+section.case-section{padding-top:56px}}
+/* Chapter titles: black 2px rule, set a little lower under the title. */
+.case-chapters .section-heading{border-bottom:2px solid #101114!important;padding-bottom:40px!important}
+@media(max-width:820px){.case-chapters .section-heading{padding-bottom:28px!important}}
+/* Balance the space above and below the lead text under each chapter title (desktop). */
+@media(min-width:821px){.case-chapters .section-heading+.case-copy-panel{padding-top:20px!important}.case-chapters #overview .section-heading+.case-copy-panel{padding-top:40px!important}}
+/* Challenge cards without top rules. */
+.problem-grid article{border-top:0!important}
+/* Website pages wall: content width (1360) instead of full screen, on desktop. */
+@media(min-width:821px){.case-chapters #website .updated-wall{width:100%!important;max-width:1360px!important;margin-left:auto!important;margin-right:auto!important;border-radius:10px!important;overflow:hidden!important}.case-chapters #website .updated-wall img{width:100%!important;height:auto!important}}
+.recap-note a{display:table;margin:40px 0 0}
+/* Chapters separated by a soft shadow on the top edge, like stacked sheets (no sticky). */
+.case-chapters>section.case-section+section.case-section{box-shadow:inset 0 10px 12px -10px rgba(16,17,20,.10)}
+/* Website screens: 3x2 grid in content width, cards fade in one by one. */
+.showcase-grid-figure{margin:0;width:100%}
+.showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;width:100%;max-width:1360px;margin:0 auto}
+.showcase-grid .showcase-slide{width:auto!important;height:auto!important;flex:none!important;aspect-ratio:1/1;border-radius:10px!important;overflow:hidden}
+.showcase-grid .showcase-slide img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:820px){.showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.showcase-grid .showcase-slide{border-radius:6px!important}}
+/* One corner radius for all photos and cards, as on the home page: 6px. */
+:root{--photo-radius:6px}
+.photo-slot,.website-laptop-mockup,.website-wall,.website-pair img,.presentation-slots>div,.design-system-figure,.case-chapters #website .updated-wall,.showcase-grid .showcase-slide{border-radius:6px!important;overflow:hidden}
+/* Website screens carousel in content width: focused centre screen, neighbours smaller and muted. */
+.showcase-carousel{position:relative;overflow:hidden;width:100%;max-width:1360px;margin:0 auto;outline:none;cursor:grab;touch-action:pan-y;user-select:none}
+.showcase-carousel.dragging{cursor:grabbing}
+.sc-track{display:flex;align-items:center;gap:24px;padding:40px 0;transition:transform .7s cubic-bezier(.65,0,.35,1);will-change:transform}
+.showcase-carousel .showcase-slide{flex:0 0 var(--sw,420px);width:var(--sw,420px)!important;height:var(--sw,420px)!important;border-radius:6px!important;overflow:hidden;transform:scale(.82);filter:saturate(.6) brightness(.92);transition:transform .7s cubic-bezier(.65,0,.35,1),filter .7s,box-shadow .7s}
+.showcase-carousel .showcase-slide img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.showcase-carousel .showcase-slide.is-active{transform:scale(1);filter:none;box-shadow:0 18px 40px rgba(16,17,20,.18)}
+.showcase-carousel.no-anim .sc-track,.showcase-carousel.no-anim .showcase-slide{transition:none!important}
+.sc-progress{width:120px;height:3px;margin:8px auto 0;background:#e4e5e8;border-radius:2px;overflow:hidden}
+.sc-progress span{display:block;width:16.666%;height:100%;background:#101114;transition:transform .7s cubic-bezier(.65,0,.35,1)}
+@media(max-width:820px){.sc-track{gap:10px;padding:24px 0}}
+@media(prefers-reduced-motion:reduce){.sc-track,.showcase-carousel .showcase-slide,.sc-progress span{transition:none!important}}
+/* Room for the focused screen shadow so it is not clipped. */
+.sc-track{padding:48px 0 88px!important}.sc-progress{margin-top:-40px!important;position:relative}
+@media(max-width:820px){.sc-track{padding:32px 0 64px!important}.sc-progress{margin-top:-32px!important}}
+/* Carousel: three equal cards fit the content width; side cards at 50% opacity, centre at 100%. */
+@media(min-width:821px){.showcase-carousel .showcase-slide{transform:none!important;filter:none!important;opacity:.5;transition:opacity .7s,box-shadow .7s}.showcase-carousel .showcase-slide.is-active{opacity:1}}
+/* Carousel full screen width: same card size and gaps, all cards opaque with a soft shadow. */
+.showcase-carousel{width:100vw!important;max-width:none!important;margin-left:calc(50% - 50vw)!important}
+.showcase-carousel .showcase-slide,.showcase-carousel .showcase-slide.is-active{transform:none!important;filter:none!important;opacity:1!important;box-shadow:0 14px 32px rgba(16,17,20,.14)}
+/* Even rhythm around the carousel: ~122px text to cards on both sides (desktop). */
+@media(min-width:821px){.case-chapters #website .design-system-block .design-system-end{padding-bottom:32px!important}.case-chapters #website .recap-note{padding-top:29px!important}}
+.recap-note em{font-family:Fraunces,serif;font-style:italic;font-weight:400;font-size:1.06em;letter-spacing:-.01em}
+.sc-track{transition:none!important}.sc-progress span{transition:none!important}
 </style>
 </head>
 <body>
@@ -422,13 +478,14 @@ body{overflow-x:clip}
 <div class="case-copy-panel structure-copy"><p class="editorial-title">Lots to say. <em>One&nbsp;&#8239;clear</em><br class="structure-break"> <em>path</em> to&nbsp;the&nbsp;ticket.</p><p class="editorial-description">Programme, faculty, online pass, venue, sponsorship — each page builds the case and&nbsp;leads to one step: booking&nbsp;a&nbsp;place.</p></div>
 <figure class="website-laptop-mockup"><img src="assets/website-laptop-mockup.png" alt="HoSS Online Pass website on a laptop with floating webpage layouts" loading="lazy" decoding="async"></figure>
 <div class="case-copy-panel copy-after-wall" data-draft="true"><p>15 unique pages, each with a desktop and&nbsp;a mobile version. Behind them is a lot of visual work: graphics drawn for the site and photos selected and&nbsp;edited, so every section feels like the same event. On every page I set what readers see first, how sections flow and&nbsp;where the key action sits&nbsp;— so&nbsp;dense content still reads at a&nbsp;glance.</p></div>
-<figure class="website-wall updated-wall"><picture><source media="(max-width:820px)" srcset="assets/website-pages-final.png"><img src="assets/website-pages-final.png" alt="HoSS website page layouts arranged in a diagonal composition" loading="lazy" decoding="async"></picture></figure>
+<figure class="website-wall updated-wall"><picture><source media="(max-width:820px)" srcset="assets/website-pages-final.webp"><img src="assets/website-pages-final.webp" alt="HoSS website page layouts arranged in a diagonal composition" loading="lazy" decoding="async"></picture></figure>
 <div class="design-system-block">
 <div class="case-copy-panel structure-copy design-system-copy" data-draft="true"><p class="editorial-title">From <em>layouts</em> to a&nbsp;<em>design&nbsp;system</em>:<br class="structure-break"> <em>97</em>&nbsp;components, <em>166</em>&nbsp;tokens.</p><p class="editorial-description">Repeating patterns became components, variables and&nbsp;text styles — so every new page&nbsp;stays&nbsp;on&#8209;brand.</p></div>
 <figure class="design-system-figure" id="design-system-visual"><picture><source media="(max-width:820px)" srcset="assets/design-system-panels-v3.png"><img src="assets/design-system-panels-v3.png" width="2048" height="1040" alt="HoSS design system: typography, colour, tokens and components" loading="eager" decoding="async"></picture></figure>
 <div class="case-copy-panel design-system-end" data-draft="true"><p>As the programme, faculty and offers took shape, new pages were assembled from the same blocks — so the site kept growing without losing its look or its focus on&nbsp;booking. I&nbsp;worked closely with the copywriters and front-end developers to keep content, design and build in&nbsp;step. A&nbsp;wide set of visuals kept the whole site consistent.</p></div>
 </div>
-<figure class="website-mobile-showcase showcase-loop" aria-label="HoSS website screens, swipe to see more"><div class="showcase-track" tabindex="0"><div class="showcase-slide"><img src="assets/showcase-1.jpg" width="1200" height="1200" alt="HoSS mobile homepage on a phone" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide is-light"><img src="assets/showcase-2.jpg" width="670" height="670" alt="HoSS Digital Hub page" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide"><img src="assets/showcase-3.jpg" width="670" height="670" alt="HoSS article page on a laptop" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide is-light"><img src="assets/showcase-4.jpg" width="670" height="670" alt="HoSS creative brand activations section" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide"><img src="assets/showcase-5.jpg" width="670" height="670" alt="HoSS micro-courses on a laptop" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide is-light"><img src="assets/showcase-6.jpg" width="600" height="600" alt="HoSS AI tutor screens on mobile" loading="lazy" decoding="async" draggable="false"></div></div></figure>
+<figure class="showcase-grid-figure" aria-label="HoSS website screens, swipe to see more"><div class="showcase-carousel" tabindex="0"><div class="sc-track"><div class="showcase-slide"><img src="assets/showcase-1.jpg" width="1200" height="1200" alt="HoSS mobile homepage on a phone" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide is-light"><img src="assets/showcase-2.jpg" width="670" height="670" alt="HoSS Digital Hub page" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide"><img src="assets/showcase-3.jpg" width="670" height="670" alt="HoSS article page on a laptop" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide is-light"><img src="assets/showcase-4.jpg" width="1000" height="1000" alt="HoSS creative brand activations section" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide"><img src="assets/showcase-5.jpg" width="670" height="670" alt="HoSS micro-courses on a laptop" loading="lazy" decoding="async" draggable="false"></div><div class="showcase-slide is-light"><img src="assets/showcase-6.jpg" width="1000" height="1000" alt="HoSS AI tutor screens on mobile" loading="lazy" decoding="async" draggable="false"></div></div></div><div class="sc-progress" aria-hidden="true"><span></span></div></figure>
+<div class="case-copy-panel design-system-end recap-note"><p>In&nbsp;September 2026, HoSS brought together more than <em>200 participants</em> from&nbsp;<em>14 countries</em> for&nbsp;two days at&nbsp;<em>Chicago Booth in&nbsp;London</em>. The&nbsp;website became part of&nbsp;that journey&nbsp;— introducing the&nbsp;summit, guiding people towards the&nbsp;event and, afterwards, preserving its story. As&nbsp;the&nbsp;main site moves into the&nbsp;2027 edition, the&nbsp;recap captures the&nbsp;people, brands and&nbsp;moments that shaped the&nbsp;first HoSS.<a href="https://hospitalitysocialsummit.com/2026-recap" target="_blank" rel="noopener">Explore the&nbsp;2026 recap&nbsp;↘</a></p></div>
 </section>
 <section class="case-section" id="presentations"><div class="section-heading"><h2>Presentations</h2><span>/03</span></div><div class="presentation-slots" aria-label="Presentation image placeholders"><div></div><div></div></div></section>
 <section class="case-section" id="social-media"><div class="section-heading"><h2>Social media</h2><span>/04</span></div><p class="preview-note">Social media and&nbsp;email campaigns · Materials will be added here.</p></section>
@@ -515,7 +572,7 @@ document.fonts.ready.then(tightenHeroMenu);
 <script>
 // Content eases in as it enters the viewport, as on the home page; siblings in a row appear one after another.
 (function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
-  var groups=['.hero-copy>*','.hero .stats>div','.case-chapters .section-heading','.case-chapters .case-copy-panel>*','.overview-collage .laptop-slot','.overview-collage .speaker-slot','.collage-materials>*','.problem-grid>article','.website-laptop-mockup','.updated-wall','.design-system-figure','.website-mobile-showcase','.website-pair','.presentation-slots>div','.case-chapters .preview-note','.result-layout>p'];
+  var groups=['.hero-copy>*','.hero .stats>div','.case-chapters .section-heading','.case-chapters .case-copy-panel>*','.overview-collage .laptop-slot','.overview-collage .speaker-slot','.collage-materials>*','.problem-grid>article','.website-laptop-mockup','.design-system-figure','.website-mobile-showcase','.showcase-grid-figure','.website-pair','.presentation-slots>div','.case-chapters .preview-note','.result-layout>p'];
   var seen=new Set();
   groups.forEach(function(sel){[].forEach.call(document.querySelectorAll(sel),function(el){if(seen.has(el))return;seen.add(el);
     var tf=getComputedStyle(el).transform;el.setAttribute('data-r',tf&&tf!=='none'?'fade':'');
@@ -590,7 +647,7 @@ document.fonts.ready.then(tightenHeroMenu);
   function hold(ms){pausedUntil=Date.now()+(ms||5000)}
   function onScreen(){var r=track.getBoundingClientRect();return Math.min(r.bottom,innerHeight)-Math.max(r.top,0)>r.height*.25}
   ['pointerdown','touchstart','wheel','focus'].forEach(function(t){track.addEventListener(t,function(){hold()},{passive:true})});
-  track.addEventListener('mouseenter',function(){hold(1e9)});track.addEventListener('mouseleave',function(){hold(1200)});
+  
   var down=false,x0=0,s0=0,moved=false;
   track.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;x0=e.clientX;s0=track.scrollLeft;track.classList.add('dragging')});
   addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-x0;if(Math.abs(dx)>3)moved=true;track.scrollLeft=s0-dx});
@@ -598,7 +655,24 @@ document.fonts.ready.then(tightenHeroMenu);
   track.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation()}},true);
   track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();hold();track.scrollBy({left:(e.key==='ArrowRight'?1:-1)*step(),behavior:'smooth'})}});
   if(reduce)return;
-  setInterval(function(){if(document.hidden||Date.now()<pausedUntil||down||!onScreen())return;wrap();track.scrollBy({left:step(),behavior:'smooth'})},2000);
+  function tick(){if(document.hidden||Date.now()<pausedUntil||down)return;wrap();track.scrollBy({left:step(),behavior:'smooth'})}
+  setTimeout(tick,300);setInterval(tick,2000);
 })();
+</script>
+<script>
+// Website screens: a continuous strip that drifts left and loops; drag or swipe to move it.
+(function(){var car=document.querySelector(".showcase-carousel");if(!car)return;var track=car.querySelector(".sc-track");var orig=[].slice.call(track.children),n=orig.length;if(!n)return;
+[].forEach.call(track.querySelectorAll("img"),function(im){im.loading="eager"});
+function cl(s){var c=s.cloneNode(true);c.setAttribute("aria-hidden","true");var im=c.querySelector("img");if(im){im.alt="";im.loading="eager"}return c}
+orig.forEach(function(s){track.appendChild(cl(s))});orig.forEach(function(s){track.appendChild(cl(s))});orig.slice().reverse().forEach(function(s){track.insertBefore(cl(s),track.firstChild)});
+var gap=24,s=300,off=0,down=false,x0=0,o0=0,paused=0,last=0;var bar=car.parentElement.querySelector(".sc-progress span");var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function size(){var ref=document.querySelector("#website .section-heading");var w=ref?ref.clientWidth:car.clientWidth,m=innerWidth<=820;gap=m?10:24;s=m?Math.round(w*.72):Math.floor((w-2*gap)/3);car.style.setProperty("--sw",s+"px");track.style.transition="none"}
+function render(){var set=n*(s+gap);off=((off%set)+set)%set;var start=car.clientWidth/2-(s/2)-(s+gap)-set;track.style.transform="translateX("+(start-off)+"px)";if(bar)bar.style.transform="translateX("+(off/set*n*100)+"%)"}
+function tick(t){var dt=last?Math.min(t-last,64):16;last=t;if(!down&&!reduce&&Date.now()>paused&&!document.hidden)off+=dt*0.04;render();requestAnimationFrame(tick)}
+car.addEventListener("pointerdown",function(e){down=true;x0=e.clientX;o0=off;car.classList.add("dragging")});
+addEventListener("pointermove",function(e){if(!down)return;off=o0-(e.clientX-x0)});
+addEventListener("pointerup",function(){if(!down)return;down=false;car.classList.remove("dragging");paused=Date.now()+1500});
+car.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){e.preventDefault();off+=(e.key==="ArrowRight"?1:-1)*(s+gap);paused=Date.now()+1500}});
+size();render();addEventListener("resize",function(){size();render()});addEventListener("load",function(){size();render()});requestAnimationFrame(tick)})();
 </script>
 </body></html>
