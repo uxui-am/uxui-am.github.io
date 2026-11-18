@@ -2082,6 +2082,15 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
  .hero__word{top:-.25em}
  .case__t{font-size:30px;line-height:1.2;max-width:none}
 }
+@media(hover:none),(pointer:coarse){
+ .hero-cv2:not(:focus-visible),.hero-cv2:hover:not(:focus-visible){background:transparent!important;color:var(--ink)!important;box-shadow:none!important}
+ .hero-cv2:hover .ar{animation:none!important}
+ .hl2:not(.open),.hl2:not(.open):hover,.hl2:not(.open):focus-within{padding:0 4px!important;position:relative!important}
+ .hl2:not(.open) a:not(.on){min-width:0!important;max-width:0!important;padding:0!important;opacity:0!important;pointer-events:none}
+ .hl2:not(.open) a.on{padding:0!important}
+ .hl2,.hl2 a{transition:none!important;touch-action:manipulation}
+ .hu-v2:has(.hl2:not(.open)) .hero-cv2{visibility:visible!important}
+}
 </style>
 
 <script>
@@ -2120,7 +2129,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   </div>
   <div class="ab3__main" data-r style="--d:.1s">
     <div class="ab3__left">
-    <p class="ab3__t"><span class="about-line">I design <em class="it">websites</em> and&nbsp;<em class="it">digital interfaces</em>,</span> <span class="about-line">creating a consistent visual language</span> <span class="about-line">that extends into <em class="it">marketing materials</em>.</span></p>
+    <p class="ab3__t"><span class="about-line">I’m a UX/UI and graphic designer,</span> <span class="about-line">creating <em class="it">websites</em> and&nbsp;<em class="it">digital interfaces</em></span> <span class="about-line">with a consistent visual language</span> <span class="about-line">that extends into <em class="it">marketing materials</em>.</span></p>
     <p class="ab3__p"><span class="about-process-line">My process spans briefs, wireframes, prototypes, design systems and&nbsp;developer handoff.</span> <span class="about-process-line">I integrate AI throughout my design process to explore ideas, develop visuals, build prototypes, and&nbsp;streamline everyday tasks.</span> <span class="about-process-line">I have experience collaborating with marketers and&nbsp;developers in international, cross-functional teams.</span></p>
     </div>
     <div class="ab3__stats">
