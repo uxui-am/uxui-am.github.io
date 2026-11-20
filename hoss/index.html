@@ -1058,11 +1058,11 @@ var io=new IntersectionObserver(function(e){if(e.some(function(x){return x.isInt
 #event-materials .ev-docs article:nth-child(1) .ev-stack{background:linear-gradient(to bottom,#cdd8ee 0 72%,#a9bbe0 72%)}
 #event-materials .ev-docs article:nth-child(2) .ev-stack{background:linear-gradient(to bottom,#dfeacb 0 72%,#bfd59b 72%)}
 #event-materials .ev-stack:not(.ev-photo) img{top:auto;bottom:21%;left:50%;height:70%;transform-origin:85% 100%}
-#event-materials .ev-stack:not(.ev-photo) img:nth-child(1){transform:translateX(-16.5%) rotate(-36deg)}
-#event-materials .ev-stack:not(.ev-photo) img:nth-child(2){transform:translateX(-16.5%) rotate(-27deg)}
-#event-materials .ev-stack:not(.ev-photo) img:nth-child(3){transform:translateX(-16.5%) rotate(-18deg)}
-#event-materials .ev-stack:not(.ev-photo) img:nth-child(4){transform:translateX(-16.5%) rotate(-9deg)}
-#event-materials .ev-stack:not(.ev-photo) img:nth-child(5){transform:translateX(-16.5%) rotate(0deg)}
+#event-materials .ev-stack:not(.ev-photo) img:nth-child(1){transform:translateX(-24%) rotate(-36deg)}
+#event-materials .ev-stack:not(.ev-photo) img:nth-child(2){transform:translateX(-24%) rotate(-27deg)}
+#event-materials .ev-stack:not(.ev-photo) img:nth-child(3){transform:translateX(-24%) rotate(-18deg)}
+#event-materials .ev-stack:not(.ev-photo) img:nth-child(4){transform:translateX(-24%) rotate(-9deg)}
+#event-materials .ev-stack:not(.ev-photo) img:nth-child(5){transform:translateX(-24%) rotate(0deg)}
 </style>
 <style id="result-em-red">#result p em{color:var(--accent,#e11d2e)}</style>
 <style id="reel-toggle-center">
@@ -1166,4 +1166,22 @@ html,body{overflow-x:clip}
     location.href='mailto:dismalina@gmail.com?subject='+encodeURIComponent('Portfolio request')+'&body='+encodeURIComponent(t);
     note.textContent='Your e-mail app should open with the request filled in. If it did not, the text is copied: send it to dismalina@gmail.com or on Telegram.';});})();
 </script>
+<style id="cta-contact-fit">
+#contact{margin-top:160px}
+#contact{scroll-margin-top:0;box-sizing:border-box;min-height:100vh;padding-top:28px!important;display:flex;flex-direction:column}
+#contact .head{height:auto!important;min-height:0!important;padding-bottom:16px}
+#contact .head h2{margin:0;line-height:.9}
+#contact .cs-grid{flex:1}
+@keyframes flRed{0%,45%{color:var(--accent)}100%{color:var(--ink)}}
+.case-section .section-heading h2 .fl-ch.flip .fi{animation:flIn .65s cubic-bezier(.65,0,.35,1) var(--fd,0ms) both,flRed 1.5s ease var(--fd,0ms) both!important}
+</style>
+<script id="cta-to-contact">
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href="#contact"]');if(!a)return;var c=document.getElementById('contact');if(!c)return;e.preventDefault();e.stopImmediatePropagation();var top=c.getBoundingClientRect().top+scrollY;window.scrollTo({top:Math.max(0,top),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});history.pushState(null,'','#contact');},true);
+</script>
+<script id="hide-fixed-on-contact">
+(function(){var c=document.getElementById('contact'),h=document.querySelector('.fixed-header');if(!c||!h)return;
+function upd(){h.classList.toggle('on-contact',c.getBoundingClientRect().top<=72)}
+addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();})();
+</script>
+<style id="hide-fixed-on-contact-css">.fixed-header.on-contact{visibility:hidden!important;transform:translateY(-100%)!important;pointer-events:none!important}</style>
 </body></html>
