@@ -655,7 +655,9 @@ a[hidden]{display:none!important}
 .bz-screens{display:grid;grid-template-columns:1fr 1fr;gap:40px 24px}
 .bz-screens figure{margin:0;display:flex;flex-direction:column;gap:14px}
 .bz-screens img{width:100%;aspect-ratio:1336/835;object-fit:cover;object-position:top;border-radius:8px;background:#f6f6f7;display:block}
-.bz-screens figcaption{display:flex;flex-direction:column;gap:6px;order:-1}
+.bz-screens{counter-reset:bzs}
+.bz-screens figcaption{display:grid;grid-template-columns:36px 1fr;column-gap:14px;row-gap:6px;align-items:center;order:-1;counter-increment:bzs}
+.bz-screens figcaption::before{content:counter(bzs);grid-row:1 / span 2;width:36px;height:36px;border-radius:50%;background:#EEF1F1;display:flex;align-items:center;justify-content:center;font:400 16px/1 Onest,sans-serif;color:var(--ink)}
 .bz-screens .c{font:400 18px/1.4 Onest,sans-serif;color:var(--ink)}
 .bz-screens .s{font:400 14px/1.4 Onest,sans-serif;color:var(--accent)}
 .bz-flow{display:grid;grid-template-columns:minmax(0,799fr) minmax(0,549fr);gap:12px;align-items:start}
