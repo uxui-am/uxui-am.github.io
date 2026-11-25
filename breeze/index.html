@@ -622,7 +622,9 @@ a[hidden]{display:none!important}
 .hero::before{background-image:url('assets/hero-bg.webp')!important;opacity:.32!important;background-position:center!important}
 .bz-hero-copy{flex:1 1 0;min-width:0;max-width:760px}
 .bz-hero-copy h1{font-size:clamp(44px,4.4vw,72px)}
-.bz-facts{display:flex;gap:32px;margin:40px 0 0;flex-wrap:wrap}
+.hero .top{border-bottom:0!important;box-shadow:none!important}
+.bz-eyebrow{color:#fff!important;font-size:14px!important;line-height:20px!important;text-transform:none!important;margin:0 0 40px!important}
+.bz-facts{display:none}
 .bz-facts div{display:flex;flex-direction:column;gap:6px}
 .bz-facts dt{font:400 11px/14px Onest,sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#c4c6cb}
 .bz-facts dd{margin:0;font:400 16px/24px Onest,sans-serif;color:#fff}
@@ -630,7 +632,7 @@ a[hidden]{display:none!important}
 .bz-laptop img{width:100%;height:auto;display:block}
 .bz-lead{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 .bz-lead .editorial-title{margin:0;font:400 clamp(32px,3.05vw,48px)/1.12 Onest,sans-serif;letter-spacing:-.055em;color:var(--ink)}
-.bz-lead .editorial-description{margin:0;font:400 18px/1.55 Onest,sans-serif;color:#3f4147;max-width:560px}
+.bz-lead .editorial-description{margin:0;font:400 18px/1.55 Onest,sans-serif;color:#3f4147;max-width:none;padding-top:8px}
 .bz-lead em,.bz-title em{font-family:Fraunces,serif;font-style:italic;letter-spacing:-.04em;color:inherit}
 .bz-h3{font:600 24px/1.2 Gabarito,sans-serif;text-transform:uppercase;margin:0 0 24px;color:var(--ink)}
 .bz-block{display:flex;flex-direction:column}
@@ -723,8 +725,7 @@ a[hidden]{display:none!important}
 <body>
 <header class="hero" id="top">
  <div class="top"><a class="back" href="/#work"><span class="arrow" aria-hidden="true">←</span><span>All projects</span></a><div class="tools"><a class="cv" href="/Alina-Matiushyna-CV.pdf">CV <span class="arrow">↓</span></a><nav class="hl2" aria-label="Website language" tabindex="-1"><a href="#" lang="en" title="English" class="on" aria-current="true">EN</a><a href="#" lang="es" title="Español" aria-disabled="true">ES</a><a href="#" lang="uk" title="Українська" aria-disabled="true">UA</a><a href="#" lang="ru" title="Русский" aria-disabled="true">RU</a></nav></div></div>
- <div class="hero-body"><div class="hero-copy bz-hero-copy"><h1>Built with AI.<br>Designed to book.</h1><p class="summary">A direct-booking website for&nbsp;three holiday apartments.</p>
- <dl class="bz-facts"><div><dt>Role</dt><dd>UX audit, UI design,<br>AI-assisted build</dd></div><div><dt>Timeline</dt><dd>1 week</dd></div><div><dt>Client</dt><dd>Freelance,<br>3 holiday apartments</dd></div><div><dt>Constraint</dt><dd>No booking backend:<br>requests go to the owner</dd></div></dl></div>
+ <div class="hero-body"><div class="hero-copy bz-hero-copy"><p class="eyebrow bz-eyebrow">UX/UI design, AI-assisted build</p><h1>Built with AI.<br>Designed to book.</h1><p class="summary">A direct-booking website for&nbsp;three holiday apartments.</p></div>
  <figure class="bz-laptop"><img src="assets/laptop.webp" alt="Redesigned Breeze website on a laptop" width="1469" height="899" decoding="async"></figure></div>
 <nav class="sections-nav" aria-label="Case sections" id="section-navigation"><div class="hero-nav-links"><a href="#context"><span class="nav-label">Context &amp; goal</span> <span class="arrow separator" aria-hidden="true">↘</span></a><a href="#audit"><span class="nav-label">Audit &amp; design decisions</span> <span class="arrow separator" aria-hidden="true">↘</span></a><a href="#system"><span class="nav-label">Design system &amp; development</span> <span class="arrow separator" aria-hidden="true">↘</span></a><a href="#result"><span class="nav-label">Result</span> <span class="arrow separator" aria-hidden="true">↘</span></a></div></nav>
 </header>
