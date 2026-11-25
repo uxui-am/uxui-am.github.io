@@ -1292,7 +1292,7 @@ addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd
 <script>(function(){var v=document.querySelector('.bz-screen'),b=document.querySelector('.bz-screen-play');if(!v||!b)return;
 function start(user){if(!v.src)v.src=v.dataset.src;var p=v.play();if(p&&p.then)p.then(function(){b.hidden=true}).catch(function(){b.hidden=false});}
 v.addEventListener('playing',function(){v.classList.add('on');b.hidden=true});
-b.addEventListener('click',function(){b.hidden=true;start(true)});
+b.addEventListener('click',function(e){e.stopPropagation();b.hidden=true;start(true)});v.style.pointerEvents='auto';v.style.cursor='pointer';v.addEventListener('click',function(){if(!v.src)return;if(v.paused){b.hidden=true;v.play()}else{v.pause();b.hidden=false}});
 var manual=matchMedia('(max-width:820px),(prefers-reduced-motion:reduce)').matches||(navigator.connection&&navigator.connection.saveData);
 if(manual){b.hidden=false;return}
 function auto(){setTimeout(function(){start(false)},300)}
