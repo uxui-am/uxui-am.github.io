@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101114" media="(max-width: 820px) and (prefers-color-scheme: dark)">
 <title>Breeze — Direct-booking website | Alina Matiushyna</title>
 <meta property="og:type" content="article">
 <meta property="og:title" content="Breeze — Alina Matiushyna">
@@ -1295,4 +1296,9 @@ function ui(){var on=!v.paused;b.innerHTML=on?PAUSE:PLAY;b.setAttribute('aria-la
 function toggle(){if(!v.src)v.src=v.dataset.src;if(v.paused){var p=v.play();if(p&&p.catch)p.catch(ui)}else v.pause()}
 v.addEventListener('playing',function(){v.classList.add('on');ui()});v.addEventListener('pause',ui);
 b.addEventListener('click',toggle);v.addEventListener('click',toggle);})();</script>
+<style id="dark-browser-background">
+@media (max-width: 820px) and (prefers-color-scheme: dark) {
+  html, body { background-color: var(--ink); }
+}
+</style>
 </body></html>
