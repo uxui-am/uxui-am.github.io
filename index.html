@@ -2951,7 +2951,15 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 </script>
 <style id="dark-browser-background">
 @media (max-width: 820px) and (prefers-color-scheme: dark) {
-  html { background-color: var(--ink); }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: max(1px, env(safe-area-inset-top, 0px));
+    background: var(--ink);
+    pointer-events: none;
+    z-index: 2147483647;
+  }
 }
 </style>
 </body>
