@@ -24,6 +24,7 @@
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
+<div class="safari-top-tint" aria-hidden="true"></div>
 <style>
 /* Single light look, on purpose: the design is a white page with one dark band */
 :root{
@@ -2951,11 +2952,10 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 </script>
 <style id="dark-browser-background">
 @media (max-width: 820px) and (prefers-color-scheme: dark) {
-  body::before {
-    content: "";
+  .safari-top-tint {
     position: fixed;
     inset: 0 0 auto;
-    height: max(1px, env(safe-area-inset-top, 0px));
+    height: max(12px, env(safe-area-inset-top, 0px));
     background: var(--ink);
     pointer-events: none;
     z-index: 2147483647;
