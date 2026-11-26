@@ -125,8 +125,9 @@
 #section-navigation .separator,.fixed-header .compact .separator{transform:none;text-decoration:none}
 #section-navigation a:hover,.fixed-header .compact a:hover{text-decoration:none}
 #section-navigation a:hover .nav-label,.fixed-header .compact a:hover .nav-label{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
-.picker-options .picker-all-projects{border-top:1px solid #fff;text-transform:uppercase;margin-top:8px}
-.picker-all-projects .arrow{font:600 16px/16px 'Fustat Arrows',sans-serif}
+.picker-options a,.mobile-section-picker summary .picker-label{text-transform:uppercase}
+.picker-options .picker-back-to-top{border-top:1px solid #fff}
+.picker-back-to-top .arrow{margin-left:auto;font:600 16px/16px 'Fustat Arrows',sans-serif}
 /* Navigation labels share the Figma Regular 16 style. */
 :root{--case-nav-font:400 16px/16px Gabarito,sans-serif}
 .back,.mobile-section-picker summary,.picker-options a,.picker-position{font-weight:400}
@@ -491,7 +492,7 @@ html,body{background:#fff}
 @media (max-width:820px){.hl2.open:not(.done){padding:0 10px}}
 @media (max-width:820px){.hl2{height:34px;min-width:34px;padding:0 4px}.hl2 a{height:26px;font-size:14px;padding:0 5px}}
 
-.tools{position:relative;--display:Gabarito,sans-serif}.tools .hl2{flex:none}.tools .hl2 a{font-family:Gabarito,sans-serif}@media(max-width:820px){.tools .hl2{height:40px;min-width:40px}.tools .hl2.open{position:absolute;right:0;z-index:3}.tools .hl2.open a{min-width:44px;justify-content:center;height:40px}.tools:has(.hl2.open) .cv{visibility:hidden}}</style><style>.mobile-wrap{display:none}@media(max-width:820px){.mobile-wrap{display:initial}}</style><style id="hoss-mobile-language-outline">
+.tools{position:relative;--display:Gabarito,sans-serif}.tools .hl2{flex:none}.tools .hl2 a{font-family:Gabarito,sans-serif}@media(max-width:820px){.tools .hl2{height:40px;min-width:40px}.tools .hl2.open{position:absolute;right:0;z-index:3}}</style><style>.mobile-wrap{display:none}@media(max-width:820px){.mobile-wrap{display:initial}}</style><style id="hoss-mobile-language-outline">
 @media(max-width:820px){
  .tools .hl2{background:transparent;box-shadow:inset 0 0 0 1.5px #fff}
  .tools .hl2 a.on{color:#fff}
@@ -505,7 +506,7 @@ html,body{background:#fff}
  .sc-track{padding-top:16px!important}
  .case-chapters #website .recap-note{padding-top:24px;padding-bottom:24px}
 }
-</style><style>.picker-top-label{display:none}.mobile-section-picker[open] summary .picker-position,.mobile-section-picker[open] summary .picker-label{display:none}.mobile-section-picker[open] summary .picker-top-label{display:inline}</style><style id="hoss-mobile-nav-and-recap">
+</style><style id="hoss-mobile-nav-and-recap">
 @media(max-width:820px){
  .hero #section-navigation{height:56px;padding:0;align-items:center}
  .hero #section-navigation .hero-nav-links{height:100%;align-items:center}
@@ -542,9 +543,9 @@ html,body{background:#fff}
  .hero #section-navigation .picker-options a{border-top:1px solid rgba(255,255,255,.18)!important}
  .mobile-section-picker .picker-options a:first-child,
  .hero #section-navigation .picker-options a:first-child,
- .mobile-section-picker .picker-options .picker-all-projects,
- .hero #section-navigation .picker-options .picker-all-projects{border-top-color:#fff!important}
- .hero #section-navigation .picker-options a:first-child:not(.picker-all-projects){border-top-color:#fff!important}
+ .mobile-section-picker .picker-options .picker-back-to-top,
+ .hero #section-navigation .picker-options .picker-back-to-top{border-top-color:#fff!important}
+ .hero #section-navigation .picker-options a:first-child:not(.picker-back-to-top){border-top-color:#fff!important}
 }
 </style><style id="hoss-presentations">
 #presentations{row-gap:80px}
@@ -720,18 +721,13 @@ const sectionPicker=document.createElement('details');
 sectionPicker.className='mobile-section-picker';
 sectionPicker.innerHTML='<summary aria-label="Choose a case section"><span class="picker-position">01</span><span class="picker-label">Website</span><span class="picker-chevron" aria-hidden="true">↓</span></summary><nav class="picker-options" aria-label="Choose a case section">'+sections.map((s,i)=>'<a href="#'+s.id+'"><span class="picker-position">0'+(i+1)+'</span><span>'+s.querySelector('h2').textContent+'</span></a>').join('')+'</nav>';
 fixedHeader.appendChild(sectionPicker);
-const pickerSummary=sectionPicker.querySelector('summary');
-const topLabel=document.createElement('span');topLabel.className='picker-top-label';topLabel.textContent='Back to top';pickerSummary.insertBefore(topLabel,pickerSummary.firstChild);
-pickerSummary.addEventListener('click',function(e){if(!sectionPicker.open)return;e.preventDefault();sectionPicker.open=false;history.pushState(null,'','#top');window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});});
-sectionPicker.addEventListener('toggle',function(){pickerSummary.setAttribute('aria-label',sectionPicker.open?'Back to top':'Choose a case section');});
-const allProjectsLink=document.createElement('a');
-allProjectsLink.href='/#work';
-allProjectsLink.className='picker-all-projects';
-allProjectsLink.innerHTML='<span class="arrow" aria-hidden="true">←</span><span>All projects</span>';
-sectionPicker.querySelector('nav').appendChild(allProjectsLink);
+const backToTopLink=document.createElement('a');
+backToTopLink.href='#top';
+backToTopLink.className='picker-back-to-top';
+backToTopLink.innerHTML='<span>Back to top</span><span class="arrow" aria-hidden="true">&#8593;</span>';
+sectionPicker.querySelector('nav').appendChild(backToTopLink);
 const heroPicker=sectionPicker.cloneNode(true);
 heroPicker.className='hero-section-picker';
-heroPicker.querySelector('.picker-top-label').remove();
 heroPicker.querySelector('.picker-label').textContent='Explore the case';
 heroPicker.querySelector('summary .picker-position').remove();
 heroPicker.querySelector('summary').setAttribute('aria-label','Choose a case section');
@@ -1216,6 +1212,23 @@ addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd
     border-bottom: 1px solid var(--case-header-divider) !important;
   }
   .hero .top .back { padding-block: 0; }
+  .hero .top .tools { flex: none; margin-left: auto; padding-right: 40px; }
+  .hero .top .tools .hl2 { position: absolute; right: 0; z-index: 3; }
+  .hero .top .tools .hl2:not(.open) { padding-inline: 4px; }
+  .hero .top .tools .hl2:not(.open) a:not(.on) { max-width: 0; padding: 0; opacity: 0; }
+  .hero .top .tools .hl2:not(.open) a.on { padding-inline: 0; }
+  .hero .top:has(.hl2.open) :is(.cv, .case-availability) { visibility: hidden; }
+  .hero .top .tools .cv:hover { color: inherit; background: transparent; }
+  .hero .top .tools .cv:active { color: var(--ink); background: #fff; }
+  .hero .top .tools .hl2.open:not(.done) {
+    background: #363638;
+    padding-inline: 10px;
+  }
+  .hero .top .tools .hl2.open:not(.done) a {
+    min-width: 44px;
+    height: 40px;
+    justify-content: center;
+  }
 }
 @media (max-width: 820px) and (prefers-color-scheme: dark) {
   .hero { padding-top: max(12px, env(safe-area-inset-top, 0px)); }
