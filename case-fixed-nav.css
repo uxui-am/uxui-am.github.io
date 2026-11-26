@@ -1,0 +1,28 @@
+/* Desktop fixed case bar: logo · current section dropdown · All projects / Get in touch / CV / language */
+.fh-sec{display:none}
+@media (min-width:821px){
+  .fixed-header.fh-compact{display:flex!important;align-items:center;justify-content:flex-start;gap:24px;height:72px;padding:0 max(40px,calc((100% - 1360px)/2))!important}
+  .fixed-header.fh-compact>.back{width:auto!important;height:auto!important;padding:0!important;justify-content:flex-start}
+  .fixed-header.fh-compact>nav.sections-nav{display:none!important}
+  .fixed-header.fh-compact>.tools{display:flex!important;align-items:center;gap:32px;margin-left:auto;height:auto!important;border:0!important}
+  .fh-sec{display:block;position:relative}
+  .fh-sec-btn{display:inline-flex;align-items:center;gap:12px;height:48px;padding:0;border:0;background:transparent;color:#fff;font:400 16px/1 Gabarito,sans-serif;text-transform:uppercase;cursor:pointer}
+  .fh-sec-arrow{font:600 16px/16px "Fustat Arrows","Fustat","Onest",Arial,sans-serif;transition:transform .2s ease}
+  .fh-sec.is-open .fh-sec-arrow{transform:rotate(180deg)}
+  .fh-sec-btn:focus-visible{outline:2px solid #fff;outline-offset:4px}
+  .fh-sec-list{display:none;position:absolute;left:-16px;top:60px;min-width:340px;background:#101114;border:1px solid #fff;padding:4px 0}
+  .fh-sec.is-open .fh-sec-list{display:block}
+  .fh-sec-list a{display:flex;align-items:center;min-height:48px;padding:0 16px;font:400 16px/1 Gabarito,"Onest",Arial,sans-serif;text-transform:uppercase;color:#fff;text-decoration:none;border-top:1px solid #6c6f76}
+  .fh-sec-list a:first-child{border-top:0}
+  .fh-sec-list a:hover,.fh-sec-list a:focus-visible,.fh-sec-list a[aria-current="location"]{background:#fff;color:#101114;outline:none}
+}
+@media (min-width:821px){
+  /* Same look as the top case header (rules mirrored from case-hero-menu.css). */
+  .fixed-header.fh-compact>.tools{gap:16px;padding-inline-end:0;position:static}
+  .fixed-header.fh-compact .case-project-menu,.fixed-header.fh-compact .case-contact-link{display:block}
+  .fixed-header.fh-compact .case-tool-link{display:flex;align-items:center;gap:8px;flex:none;width:140px;height:48px;padding:0 16px;white-space:nowrap;border-radius:999px;color:#c4c6cb;font:400 16px/1 Gabarito,sans-serif;text-transform:uppercase;cursor:pointer;transition:color .18s ease;box-sizing:border-box;text-decoration:none}
+  .fixed-header.fh-compact .case-tool-link:is(:hover,:focus-visible),.fixed-header.fh-compact .case-project-menu[open] summary{color:#fff}
+  .fixed-header.fh-compact>.tools>.cv{display:inline-flex!important;align-items:center;justify-content:center;width:68px;height:48px;padding:0!important;box-sizing:border-box}
+  .fh-sec{margin-left:40px}
+}
+@media (min-width:821px){.fh-sec-list{padding:0!important;border:1px solid #6c6f76!important;box-shadow:0 0 0 1px #101114}.fh-sec-list a[aria-current="location"]{box-shadow:inset 1px 0 0 #101114,inset -1px 0 0 #101114}}

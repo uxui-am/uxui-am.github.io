@@ -63,9 +63,12 @@
     var limit=function(){return top?top.getBoundingClientRect().bottom+window.scrollY:80};
     var barImg=bar.querySelector('img'),lastDark=null,tick=false;
     // Match the bar to the section it currently sits over: dark bar on dark blocks, white bar on light ones.
-    var bgUnder=function(){var el=document.elementFromPoint(innerWidth/2,bar.offsetHeight+2);
-      while(el&&el!==document.documentElement){var c=getComputedStyle(el).backgroundColor,m=c.match(/[\d.]+/g);
-        if(m&&(m.length<4||+m[3]>0.5))return (+m[0]*299+ +m[1]*587+ +m[2]*114)/1000;el=el.parentElement}return 255};
+    var bgUnder=function(){var el=document.elementFromPoint(innerWidth/2,bar.offsetHeight+2);if(!el)return 255;
+      // Use the section's own background: the outermost filled layer inside the section, ignoring photos/cards nested deeper.
+      var lum=function(n){var c=getComputedStyle(n).backgroundColor,m=c.match(/[\d.]+/g);return m&&(m.length<4||+m[3]>0.5)?(+m[0]*299+ +m[1]*587+ +m[2]*114)/1000:null};
+      var sec=el.closest('section, footer, header, .hero, .case-section, .contact'),best=null,n=el;
+      if(sec){while(n&&n!==sec.parentElement){var l=lum(n);if(l!==null&&n.tagName!=='IMG'&&n.tagName!=='VIDEO'&&n.tagName!=='PICTURE')best=l;n=n.parentElement}if(best!==null){var own=lum(sec);return own!==null?own:best}}
+      n=sec?sec.parentElement:el;while(n&&n!==document.documentElement){var l2=lum(n);if(l2!==null)return l2;n=n.parentElement}return 255};
     var paint=function(){tick=false;var dark=bgUnder()<110;if(dark===lastDark)return;lastDark=dark;
       bar.classList.toggle('is-dark',dark);btn2.style.color=dark?'#fff':'#101114';barImg.src=pre+(dark?'img/am-logo-mobile-white.svg':'img/am-logo-mobile.svg')};
     var onScroll=function(){root.classList.toggle('mm-bar-on',window.scrollY>limit());if(!tick){tick=true;requestAnimationFrame(paint)}};
