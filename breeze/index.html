@@ -1380,6 +1380,14 @@ function startOcean(){v.src='assets/hero-surf-loop.mp4';v.play().catch(function(
 v.addEventListener('playing',function(){v.classList.add('on')});
 if(document.readyState==='complete')startOcean();else addEventListener('load',startOcean,{once:true});})();</script>
 <style id="breeze-hero-devices">
+@media(min-width:821px){
+  .hero .bz-laptop{isolation:isolate}
+  .hero .bz-laptop::before{
+    content:"";position:absolute;left:1%;top:87%;width:96%;height:6%;z-index:-1;pointer-events:none;
+    background:radial-gradient(ellipse at center,rgb(0 0 0 / 38%) 0%,rgb(0 0 0 / 24%) 42%,transparent 76%);
+    filter:blur(4px);
+  }
+}
   .hero .bz-phone-booking{
     position:absolute;display:block;left:76.02%;top:29.44%;width:19%;height:54.83%;
     border-radius:14% / 6.5%;overflow:hidden;pointer-events:none;
