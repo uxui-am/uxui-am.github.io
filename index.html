@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&family=Onest:wght@300;400;600&family=Fraunces:ital,opsz,wght@1,9..144,400..700&family=Fustat:wght@400;600;700&display=swap">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
-<link rel="stylesheet" href="mobile-menu.css?v=32">
+<link rel="stylesheet" href="mobile-menu.css?v=43">
 </head>
 <body>
 <div class="safari-top-tint" aria-hidden="true"></div>
@@ -2224,7 +2224,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       </div>
     </article>
 
-    <article class="case case--extra">
+    <article class="case case--extra" id="kordie">
       <span class="case__lab">Decks and&nbsp;course materials</span>
       <a class="cover" href="#" aria-label="Case study: Kordie presentations">
         <img src="img/cover-kordie.jpg" alt="Kordie presentation slides">
@@ -2527,6 +2527,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   var view=s.querySelector('.cases-view'),track=s.querySelector('.cases'),drag=null,suppress=false;
   function desktop(){return matchMedia('(min-width:1101px)').matches}
   function set(end){s.classList.toggle('shifted',end);b.setAttribute('aria-expanded',String(end));b.hidden=end&&!desktop();b.querySelector('.more-btn__t').textContent=end&&desktop()?'Back':'More';b.querySelector('.ar').textContent=end&&desktop()?'←':'→'}
+  if(document.getElementById(location.hash.slice(1))?.classList.contains('case--extra'))set(true);
   b.addEventListener('click',function(){set(desktop()?!s.classList.contains('shifted'):true)});
   view.addEventListener('dragstart',function(e){if(desktop())e.preventDefault()});
   view.addEventListener('pointerdown',function(e){if(!desktop()||e.button!==0)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,end:s.classList.contains('shifted'),active:false}});
@@ -3002,6 +3003,6 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   }
 }
 </style>
-<script src="mobile-menu.js?v=21" defer></script>
+<script src="mobile-menu.js?v=25" defer></script>
 </body>
 </html>
