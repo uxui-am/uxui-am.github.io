@@ -1036,6 +1036,8 @@ html.dotcur input,html.dotcur textarea,html.dotcur [contenteditable]{cursor:text
 /* hero top bar under the ticker: availability (left) and CV (right) */
 .hero-top{position:absolute;z-index:3;left:max(var(--side),var(--gut));right:max(var(--side),var(--gut));top:calc(51px + 22px);display:flex;justify-content:space-between;align-items:center;pointer-events:none}
 .hero-top>*{pointer-events:auto}
+.hero-identity{display:flex;align-items:center;gap:16px}
+.hero-logo{display:block;flex:none}.hero-logo img{display:block}
 .avail{display:inline-flex;align-items:center;gap:10px;font:400 14px/1 var(--text);color:var(--ink)}
 .avail i{position:relative;width:8px;height:8px;border-radius:50%;background:#22C55E;flex:none}
 .avail i::after{content:"";position:absolute;inset:0;border-radius:50%;background:#22C55E;animation:availPulse 1.8s ease-out infinite}
@@ -2114,7 +2116,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
 
 
 <header class="hero">
-    <div class="hero-top"><span class="avail"><i aria-hidden="true"></i>Open to work</span><div class="hero-utilities hu-v2"><a class="hero-cv2" href="Alina-Matiushyna-CV.pdf" target="_blank" rel="noopener">CV <span class="ar" aria-hidden="true">↓</span></a><nav class="hl2" aria-label="Website language" tabindex="-1"><a href="#" lang="en" title="English" class="on" aria-current="true">EN</a><a href="#" lang="es" title="Español" aria-disabled="true">ES</a><a href="#" lang="uk" title="Українська" aria-disabled="true">UA</a><a href="#" lang="ru" title="Русский" aria-disabled="true">RU</a></nav></div></div>
+    <div class="hero-top"><div class="hero-identity"><picture class="hero-logo"><source media="(max-width: 820px)" srcset="img/am-logo-mobile.svg"><img src="img/am-logo.svg" width="40" height="40" alt="Alina Matiushyna"></picture><span class="avail"><i aria-hidden="true"></i>Open to work</span></div><div class="hero-utilities hu-v2"><a class="hero-cv2" href="Alina-Matiushyna-CV.pdf" target="_blank" rel="noopener">CV <span class="ar" aria-hidden="true">↓</span></a><nav class="hl2" aria-label="Website language" tabindex="-1"><a href="#" lang="en" title="English" class="on" aria-current="true">EN</a><a href="#" lang="es" title="Español" aria-disabled="true">ES</a><a href="#" lang="uk" title="Українська" aria-disabled="true">UA</a><a href="#" lang="ru" title="Русский" aria-disabled="true">RU</a></nav></div></div>
     <div class="hero__in wrap">
     <span class="hero__ava-wrap">
       <img class="hero__ava" src="img/avatar.png" alt="Portrait of Alina Matiushyna">
