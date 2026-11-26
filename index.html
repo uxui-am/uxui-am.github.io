@@ -241,6 +241,9 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .ticker{position:sticky;top:0;z-index:1}
 .hero{position:sticky;top:51px;z-index:1}
 main>section,.foot{position:sticky;top:0}
+.anchor-glide :is(.ticker,.hero,main>section,.foot){position:relative!important;top:auto!important}
+.anchor-glide .ticker{visibility:hidden}
+.anchor-glide .hero__in{transform:none!important;opacity:1!important}
 .projects{z-index:3}.more{z-index:4;background:var(--paper)}.do{z-index:5;background:var(--paper);overflow-x:clip}.how{z-index:6;background:var(--paper)}.contact{z-index:7;background:var(--paper)}.foot{z-index:8;background:var(--paper)}
 .more,.do,.how,.contact{box-shadow:0 -30px 60px -30px rgba(16,17,20,.14)}
 .projects{box-shadow:0 -40px 80px -20px rgba(16,17,20,.25)}
@@ -2089,13 +2092,21 @@ a:hover .arr-n,button:hover .arr-n{animation:arN .55s cubic-bezier(.22,1,.36,1)!
  #about-me{box-shadow:0 -30px 60px -30px rgba(16,17,20,.045)}
 }
 @media(max-width:820px){
- .hero__in{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))!important;min-height:calc(var(--hero-screen) - 51px - env(safe-area-inset-top,0px) + 24px)!important}
+ .hero__in{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))!important;min-height:calc(var(--hero-screen) - 51px - env(safe-area-inset-top,0px))!important}
  #about-me,.hero-gap-compact #about-me{position:relative;padding-top:64px!important}
  #about-me::before{content:"";position:absolute;top:-88px;left:50%;transform:translateX(-50%);width:100vw;height:88px;pointer-events:none;background:linear-gradient(to bottom,rgba(16,17,20,0),rgba(16,17,20,.025))}
  .hero .hero-acts,.is-android .hero .hero-acts{position:static!important;left:auto!important;right:auto!important;top:auto!important;width:100%!important;max-width:100%;transform:none!important;display:flex!important;justify-content:center!important;align-self:center!important}
  .hero .hero-acts,.is-android .hero .hero-acts{transform:translateY(12px)!important}
  .hero__word{top:-.25em}
  .case__t{font-size:30px;line-height:1.2;max-width:none}
+}
+@media(max-width:820px) and (max-height:700px){
+ .hero__in{padding-bottom:max(48px,env(safe-area-inset-bottom,0px))!important}
+}
+@media(max-width:820px) and (max-height:640px){
+ .hero.hero--compact .hero__in{padding-top:58px!important;padding-bottom:max(12px,env(safe-area-inset-bottom,0px))!important;gap:5px!important}
+ .hero.hero--compact .hero__ava-wrap,.hero.hero--compact .hero__ava{width:48px!important;height:48px!important}
+ .hero.hero--compact .hero__h1{font-size:40px!important}
 }
 @media(hover:none),(pointer:coarse){
  .hero-cv2:not(:focus-visible),.hero-cv2:hover:not(:focus-visible){background:transparent!important;color:var(--ink)!important;box-shadow:none!important}
@@ -2192,7 +2203,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
       </div>
     </article>
 
-    <article class="case" data-r style="--d:0.24s">
+    <article class="case" id="qvocab" data-r style="--d:0.24s">
       <span class="case__lab">Own product, vibe coding</span>
       <a class="cover qv" href="#" aria-label="Case study: Qvocab">
         <span class="qv__in">
@@ -2412,7 +2423,7 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
     <form class="cs-form" novalidate>
       <p class="cs-mad" data-r style="--d:.1s">Hi Alina, my name is <span class="cs-nw cs-nw--caret"><input class="cs-in" id="cs-name" name="name" type="text" autocomplete="name" placeholder="your name" aria-label="Your name"><span class="cs-caret" aria-hidden="true"></span>.</span><br class="cs-br1"> I&rsquo;m looking for&nbsp;a designer to help with&nbsp;<span class="cs-sel" data-kind="checkbox"><span class="cs-sel__btn" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true"><span class="cs-sel__val">service</span><svg class="cs-car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span><span class="cs-menu" role="group" aria-label="Services"><button class="cs-x cs-menu-close" type="button" aria-label="Close services">×</button><label class="cs-o"><input type="checkbox" name="need" value="apps"><span>Apps</span></label><label class="cs-o"><input type="checkbox" name="need" value="websites"><span>Websites</span></label><label class="cs-o"><input type="checkbox" name="need" value="landing pages"><span>Landing pages</span></label><label class="cs-o"><input type="checkbox" name="need" value="presentations"><span>Presentations</span></label><label class="cs-o"><input type="checkbox" name="need" value="social media carousels"><span>Social media carousels</span></label><label class="cs-o"><input type="checkbox" name="need" value="ad creatives"><span>Ad creatives</span></label><label class="cs-o"><input type="checkbox" name="need" value="branding"><span>Branding</span></label><label class="cs-o"><input type="checkbox" name="need" value="other" data-other><span>Other…</span></label><input class="cs-other" name="other_text" type="text" placeholder="Tell me what you need" aria-label="Other service"></span><span class="cs-service-period">.</span></span> <span class="cs-reach"><span class="cs-reach-label">You can reach <span class="cs-nw">me&nbsp;at</span></span> <span class="cs-email-wrap"><input class="cs-in" id="cs-contact" name="contact" type="email" autocomplete="email" enterkeyhint="done" placeholder="your e-mail" aria-label="Your e-mail">.</span></span></p>
       <input type="checkbox" name="botcheck" class="cs-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="cs-send" data-r style="--d:.25s"><p class="cs-aside">Your details are used only <br class="cs-privacy-br">to reply to your request.</p><p class="cs-aside">We can discuss your <br class="cs-language-br">project in EN,&nbsp;UA,&nbsp;RU</p><button type="submit" class="cs-btn">Send request <span class="ar">↗</span></button></div>
+      <div class="cs-send" data-r style="--d:.25s"><p class="cs-aside">Your details are used only <br class="cs-privacy-br">to reply to your request.</p><p class="cs-aside">We can discuss your <br class="cs-language-br">project in EN,&nbsp;UA,&nbsp;RU</p><button type="submit" class="cs-btn">Send request <span class="ar arr-ne"↗</span></button></div>
       <p class="cs-note" aria-live="polite"></p>
     </form>
     <aside class="cs-direct">
@@ -2737,15 +2748,41 @@ window.scrollTo(0,0);addEventListener('load',function(){if(!location.hash)window
   eq();if(document.fonts)document.fonts.ready.then(eq);addEventListener('resize',eq);})();
 </script>
 <script>
-// smooth glide for every in-page link (#work, #contact, back to top), eased, ~0.9s
-(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var raf=0;
+// Glide to contact and back to the top with sections in normal flow.
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var raf=0,root=document.documentElement;
+  function stop(){
+    cancelAnimationFrame(raf);
+    root.classList.remove('anchor-glide');
+  }
   function docY(el){var y=0;while(el){y+=el.offsetTop;el=el.offsetParent}return y}
   function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
-  function glide(to){cancelAnimationFrame(raf);var from=scrollY,d=to-from;if(Math.abs(d)<2)return;var dur=Math.min(1200,Math.max(600,Math.abs(d)*.35)),t0=performance.now();
-    (function f(t){var k=Math.min(1,(t-t0)/dur);scrollTo(0,from+d*ease(k));if(k<1)raf=requestAnimationFrame(f)})(t0)}
-  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href');
-    var el=id==='#'?null:document.querySelector(id);if(id!=='#'&&!el)return;e.preventDefault();glide(el?Math.min(docY(el),document.documentElement.scrollHeight-innerHeight):0)});
-  ['wheel','touchstart','keydown'].forEach(function(n){addEventListener(n,function(){cancelAnimationFrame(raf)},{passive:true})});})();
+  function glide(el,plain){
+    stop();
+    if(plain)root.classList.add('anchor-glide');
+    var from=scrollY,to=el?Math.min(docY(el),root.scrollHeight-innerHeight):0,d=to-from;
+    if(Math.abs(d)<2){stop();return}
+    var duration=plain?700:Math.min(1200,Math.max(600,Math.abs(d)*.35));
+    var start=performance.now();
+    function frame(now){
+      var progress=Math.min(1,(now-start)/duration);
+      scrollTo({top:from+d*ease(progress),behavior:'instant'});
+      if(progress<1)raf=requestAnimationFrame(frame);
+      else stop();
+    }
+    raf=requestAnimationFrame(frame);
+  }
+  document.addEventListener('click',function(event){
+    var link=event.target.closest('a[href^="#"]');
+    if(!link||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+    var hash=link.getAttribute('href'),target=hash==='#'?null:document.querySelector(hash);
+    if(hash!=='#'&&!target)return;
+    event.preventDefault();
+    glide(target,link.matches('.hero-git, .talk, .cs-foot a[href="#"]'));
+  });
+  ['wheel','touchstart','keydown'].forEach(function(name){addEventListener(name,stop,{passive:true})});
+})();
 </script>
 <script>
 // Section titles use the same letter flip on viewport entry and hover.
