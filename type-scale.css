@@ -28,3 +28,6 @@
   .hero .stat-number{font-size:48px!important;line-height:40px!important}
   .result-layout > p{line-height:32px!important}
 }
+
+/* Desktop-only manual line breaks */
+@media (max-width:820px){br.dbr{display:none}}
