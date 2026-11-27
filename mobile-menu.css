@@ -16,7 +16,7 @@
   html.mm-open .mm-panel{opacity:1!important;visibility:visible!important;transform:none!important;transition:opacity .2s ease,transform .2s ease}
   .mm-top{display:flex;justify-content:space-between;align-items:center;height:64px;padding:0 8px 0 16px}
   .mm-left{display:flex;align-items:center;gap:20px}
-  .mm-close{position:relative;width:40px;height:40px;padding:0;border:0;background:transparent;color:#9A9CA2;cursor:pointer}
+  .mm-close{position:relative;width:40px;height:40px;padding:0;border:0;background:transparent;color:#95979C;cursor:pointer}
   .mm-close i{position:absolute;left:11px;top:19px;width:18px;height:2px;border-radius:2px;background:currentColor}
   .mm-close i:nth-child(1){transform:rotate(45deg)}
   .mm-close i:nth-child(2){transform:rotate(-45deg)}
@@ -26,15 +26,15 @@
   .mm-cv:hover,.mm-cv:focus-visible{color:#fff}
   .mm-langslot{position:relative;height:40px;width:40px}
   .mm-langslot .hl2{position:absolute!important;left:0!important;right:auto!important;top:0;background:transparent!important;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)!important}
-  .mm-langslot .hl2 a{color:#7A7C83!important}
+  .mm-langslot .hl2 a{color:#73767C!important}
   .mm-langslot .hl2 a.on{color:#fff!important;order:-1}
   .mm-langslot .hl2:is(.open,:hover,:focus-within):not(.done){background:#101114!important;box-shadow:inset 0 0 0 1.5px #fff!important;z-index:3}
   .mm-panel ul{list-style:none;margin:0;padding:0}
-  .mm-panel a.mm-item{display:flex;align-items:center;gap:16px;min-height:52px;padding:0 16px;border-top:1px solid #6c6f76;font:400 16px/1 Gabarito,"Onest",Arial,sans-serif;text-transform:uppercase;color:#fff;text-decoration:none}
+  .mm-panel a.mm-item{display:flex;align-items:center;gap:16px;min-height:52px;padding:0 16px;border-top:1px solid #73767c;font:400 16px/1 Gabarito,"Onest",Arial,sans-serif;text-transform:uppercase;color:#fff;text-decoration:none}
   .mm-panel a.mm-item:hover,.mm-panel a.mm-item:focus-visible,.mm-panel a.mm-item:active{background:#fff;color:#101114;outline:none}
   .mm-panel .mm-arrow{margin-left:auto;font:600 16px/16px "Fustat Arrows","Fustat","Onest",Arial,sans-serif}
   .fixed-header .mobile-section-picker{border-top:0!important}
-  .fixed-header .mm-btn-fixed{position:absolute;right:0;top:0;width:56px;height:54px;margin:0;background:#101114;color:#fff;border-left:1px solid #6c6f76;box-sizing:border-box;z-index:3}
+  .fixed-header .mm-btn-fixed{position:absolute;right:0;top:0;width:56px;height:54px;margin:0;background:#101114;color:#fff;border-left:1px solid #73767c;box-sizing:border-box;z-index:3}
   .fixed-header .mm-btn-fixed i{right:22px}
   .fixed-header .mm-btn-fixed i:nth-child(1){top:18px}
   .fixed-header .mm-btn-fixed i:nth-child(2){top:26px}
@@ -44,7 +44,7 @@
   .mm-bar{display:flex;align-items:center;justify-content:space-between;position:fixed;left:0;right:0;top:0;z-index:1000;height:64px;padding:0 16px;box-sizing:border-box;background:#fff;border-bottom:1px solid #e4e5e8;transform:translateY(-100%);transition:transform .25s ease}
   html.mm-bar-on .mm-bar{transform:none}
   .mm-bar{transition:transform .25s ease,background-color .2s ease,border-color .2s ease}
-  .mm-bar.is-dark{background:#101114;border-bottom-color:#2a2b30}
+  .mm-bar.is-dark{background:#101114;border-bottom-color:#27282d}
   .mm-bar .mm-btn{margin-left:0}
   .mm-bar-logo{display:flex}
   .mm-bar-logo img{display:block;width:40px;height:40px}
@@ -65,7 +65,7 @@
 @media (max-width:820px){
   .mm-secs{padding:6px 0}
   .mm-panel a.mm-sec{min-height:44px;border-top:0;font:400 16px/1.3 Onest,Arial,sans-serif;text-transform:none;color:#C4C6CB}
-  .mm-panel a.mm-sec .mm-num{min-width:28px;font:400 13px/1 Onest,Arial,sans-serif;color:#6C6F76}
+  .mm-panel a.mm-sec .mm-num{min-width:28px;font:400 13px/1 Onest,Arial,sans-serif;color:#73767C}
   .mm-panel a.mm-sec[aria-current="location"]{background:transparent;color:#fff}
   .mm-panel a.mm-sec[aria-current="location"] .mm-num{color:#E11D2E}
   .mm-panel a.mm-sec:hover,.mm-panel a.mm-sec:focus-visible{background:transparent;color:#fff}
@@ -99,14 +99,14 @@
 @media (max-width:820px){.mm-going-top .mm-bar{visibility:hidden}}
 
 @media (max-width:820px){
-  .mm-project-description{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#9a9ca2;font:400 13px/1.2 Gabarito,sans-serif;text-transform:uppercase}
+  .mm-project-description{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#95979c;font:400 13px/1.2 Gabarito,sans-serif;text-transform:uppercase}
   .mm-project-description::before{content:"\2014\00a0"}
 }
 
 @media (max-width:820px){
   .mm-panel #mm-projects [aria-current="page"]{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;background:#fff;color:#101114;font:400 16px/1.3 Onest,Arial,sans-serif}
   .mm-panel #mm-projects [aria-current="page"] .mm-num{min-width:18px;color:inherit}
-  .mm-panel #mm-projects [aria-current="page"] .mm-project-description{color:#6c6f76}
+  .mm-panel #mm-projects [aria-current="page"] .mm-project-description{color:#73767c}
 }
 
 @media (max-width:820px) and (hover:hover) and (prefers-reduced-motion:no-preference){
